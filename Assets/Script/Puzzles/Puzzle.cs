@@ -18,8 +18,11 @@ public enum TriggerType {
 public class Puzzle : MonoBehaviour {
     public bool isTriggered = false;
     private bool isTriggeredLastTime = false;
+
     public Vector2 range = new Vector2(0.0f, 0.0f);
     public TriggerType triggerType;
+    public bool isPermanentChange = false;
+
     public List<Puzzle> puzzles = new List<Puzzle>();
     public List<PuzzleType> puzzleTypes = new List<PuzzleType>();
 
@@ -28,6 +31,9 @@ public class Puzzle : MonoBehaviour {
     }
 	
     public virtual void Update () {
+        if (isPermanentChange && isTriggered) {
+            return;
+        }
         isTriggeredLastTime = isTriggered;
         switch (triggerType) {
             case TriggerType.AND: {
