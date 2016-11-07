@@ -78,6 +78,7 @@ public class Puzzle : MonoBehaviour {
                     }
                     break;
                 }
+
             }
             if (triggerTest != true) {
                 break;
