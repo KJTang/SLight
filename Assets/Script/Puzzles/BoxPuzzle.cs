@@ -34,6 +34,7 @@ public class BoxPuzzle : Puzzle
             Debug.Log(gameObject.GetComponent<Rigidbody2D>().mass+"kg");
             gameObject.GetComponent<Rigidbody2D>().velocity = zero;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            transform.rotation = new Quaternion(0,0,0,0);//排除移动箱子以后不能左右跳跃的bug
         }
     }
 }
