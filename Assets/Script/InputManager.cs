@@ -28,6 +28,15 @@ public class InputManager : IGameManager {
         }
         set {
             enable = value;
+            if (value == false) {
+                foreach (InputKey key in keys) {
+                    KeyInfo info = inputDict[key];
+                    info.keyUp = false;
+                    info.keyDown = false;
+                    info.keyStatus = false;
+                    inputDict[key] = info;
+                }
+            }
         }
     }
 
