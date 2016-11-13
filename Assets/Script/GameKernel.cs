@@ -39,6 +39,8 @@ public class GameKernel : MonoBehaviour {
 
     void Start() {
         levelManager.ChangeLevel(new Level001(), true);
+        // Debugging
+        // inputManager.Enable = true;
     }
     
     void Update() {
