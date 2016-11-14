@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 // using UnityEngine.Assertions;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +29,7 @@ public class InputManager : IGameManager {
         set {
             enable = value;
             if (value == false) {
+                List<InputKey> keys = new List<InputKey>(inputDict.Keys);
                 foreach (InputKey key in keys) {
                     KeyInfo info = inputDict[key];
                     info.keyUp = false;
