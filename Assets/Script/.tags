@@ -1,0 +1,231 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AND	.\Puzzles\Puzzle.cs	/^    AND, $/;"	e	enum:TriggerType	file:
+Action	.\Actions\Action.cs	/^public class Action {$/;"	c
+Action	.\InputManager.cs	/^    Jump, Action$/;"	e	enum:InputKey	file:
+ActionCallFunc	.\Actions\ActionCallFunc.cs	/^    public ActionCallFunc(GameObject go, CallFuncDelegate func, object d = null) {$/;"	m	class:ActionCallFunc
+ActionCallFunc	.\Actions\ActionCallFunc.cs	/^public class ActionCallFunc : Action {$/;"	c
+ActionDelay	.\Actions\ActionDelay.cs	/^    public ActionDelay(GameObject go, float t) {$/;"	m	class:ActionDelay
+ActionDelay	.\Actions\ActionDelay.cs	/^public class ActionDelay : Action {$/;"	c
+ActionManager	.\ActionManager.cs	/^public class ActionManager : IGameManager {$/;"	c
+ActionMoveBy	.\Actions\ActionMoveBy.cs	/^    public ActionMoveBy(GameObject go, Vector3 of, float time) {$/;"	m	class:ActionMoveBy
+ActionMoveBy	.\Actions\ActionMoveBy.cs	/^public class ActionMoveBy : Action {$/;"	c
+ActionMoveTo	.\Actions\ActionMoveTo.cs	/^    public ActionMoveTo(GameObject go, Vector3 dist, float time) {$/;"	m	class:ActionMoveTo
+ActionMoveTo	.\Actions\ActionMoveTo.cs	/^public class ActionMoveTo : Action {$/;"	c
+ActionSequence	.\Actions\ActionSequence.cs	/^    public ActionSequence(GameObject go, params Action[] ac) {$/;"	m	class:ActionSequence
+ActionSequence	.\Actions\ActionSequence.cs	/^public class ActionSequence : Action {$/;"	c
+ActionSpawn	.\Actions\ActionSpawn.cs	/^    public ActionSpawn(GameObject go, params Action[] ac) {$/;"	m	class:ActionSpawn
+ActionSpawn	.\Actions\ActionSpawn.cs	/^public class ActionSpawn : Action {$/;"	c
+AddEventListener	.\EventManager.cs	/^    public void AddEventListener(string eventName, IEventListener listener) {$/;"	m	class:EventManager
+Awake	.\GameKernel.cs	/^    void Awake() {$/;"	m	class:GameKernel	file:
+BoxPuzzle	.\Puzzles\BoxPuzzle.cs	/^public class BoxPuzzle : Puzzle$/;"	c
+ButtonPuzzle	.\Puzzles\ButtonPuzzle.cs	/^public class ButtonPuzzle : Puzzle {$/;"	c
+CallFuncDelegate	.\Actions\ActionCallFunc.cs	/^public delegate void CallFuncDelegate(object obj);$/;"	m
+ChangeLevel	.\LevelManager.cs	/^    public void ChangeLevel(Level level, bool useTransistion = false) {$/;"	m	class:LevelManager
+ChangeToLevel	.\Levels\StartLevel.cs	/^    public void ChangeToLevel(int level) {$/;"	m	class:StartLevel
+ClambPuzzle	.\Puzzles\ClambPuzzle.cs	/^public class ClambPuzzle : Puzzle$/;"	c
+Destroy	.\ActionManager.cs	/^    public void Destroy() {}$/;"	m	class:ActionManager
+Destroy	.\Actions\Action.cs	/^    public virtual void Destroy() {}$/;"	m	class:Action
+Destroy	.\Actions\ActionCallFunc.cs	/^    public override void Destroy() {}$/;"	m	class:ActionCallFunc
+Destroy	.\Actions\ActionDelay.cs	/^    public override void Destroy() {}$/;"	m	class:ActionDelay
+Destroy	.\Actions\ActionMoveBy.cs	/^    public override void Destroy() {}$/;"	m	class:ActionMoveBy
+Destroy	.\Actions\ActionMoveTo.cs	/^    public override void Destroy() {}$/;"	m	class:ActionMoveTo
+Destroy	.\Actions\ActionSequence.cs	/^    public override void Destroy() {}$/;"	m	class:ActionSequence
+Destroy	.\Actions\ActionSpawn.cs	/^    public override void Destroy() {}$/;"	m	class:ActionSpawn
+Destroy	.\EventManager.cs	/^    public void Destroy() {}$/;"	m	class:EventManager
+Destroy	.\GameKernel.cs	/^    void Destroy();$/;"	m	interface:IGameManager
+Destroy	.\InputManager.cs	/^    public void Destroy() {}$/;"	m	class:InputManager
+Destroy	.\LevelManager.cs	/^    public void Destroy() {$/;"	m	class:LevelManager
+DetectInput	.\InputManager.cs	/^    void DetectInput() {$/;"	m	class:InputManager	file:
+DetectInputOnMobile	.\InputManager.cs	/^    void DetectInputOnMobile() {$/;"	m	class:InputManager	file:
+DetectInputOnPC	.\InputManager.cs	/^    void DetectInputOnPC() {$/;"	m	class:InputManager	file:
+DetermineAnd	.\Puzzles\Puzzle.cs	/^    bool DetermineAnd() {$/;"	m	class:Puzzle	file:
+DetermineOr	.\Puzzles\Puzzle.cs	/^    bool DetermineOr() {$/;"	m	class:Puzzle	file:
+DispatchEvent	.\EventManager.cs	/^    public void DispatchEvent(string eventName, object data = null) {$/;"	m	class:EventManager
+DoAction	.\UnityScript\PlayerControl.cs	/^    void DoAction() {$/;"	m	class:PlayerControl	file:
+DoMove	.\UnityScript\PlayerControl.cs	/^    void DoMove() {$/;"	m	class:PlayerControl	file:
+DoorPuzzle	.\Puzzles\DoorPuzzle.cs	/^public class DoorPuzzle : Puzzle {$/;"	c
+Down	.\InputManager.cs	/^    Left, Right, Up, Down, $/;"	e	enum:InputKey	file:
+Enable	.\InputManager.cs	/^    public bool Enable {$/;"	p	class:InputManager
+EventManager	.\EventManager.cs	/^public class EventManager : IGameManager {$/;"	c
+GameKernel	.\GameKernel.cs	/^public class GameKernel : MonoBehaviour {$/;"	c
+GetGameObject	.\Actions\Action.cs	/^    public GameObject GetGameObject() {$/;"	m	class:Action
+GetKey	.\InputManager.cs	/^    public bool GetKey(InputKey k) {$/;"	m	class:InputManager
+GetKeyDown	.\InputManager.cs	/^    public bool GetKeyDown(InputKey k) {$/;"	m	class:InputManager
+GetKeyUp	.\InputManager.cs	/^    public bool GetKeyUp(InputKey k) {$/;"	m	class:InputManager
+GetTrigger	.\Puzzles\Puzzle.cs	/^    public bool GetTrigger() {$/;"	m	class:Puzzle
+GetTriggerDown	.\Puzzles\Puzzle.cs	/^    public bool GetTriggerDown() {$/;"	m	class:Puzzle
+GetTriggerUp	.\Puzzles\Puzzle.cs	/^    public bool GetTriggerUp() {$/;"	m	class:Puzzle
+IEventListener	.\EventManager.cs	/^public interface IEventListener {$/;"	i
+IGameManager	.\GameKernel.cs	/^public interface IGameManager {$/;"	i
+Init	.\ActionManager.cs	/^    public void Init() {}$/;"	m	class:ActionManager
+Init	.\Actions\Action.cs	/^    public virtual void Init() {}$/;"	m	class:Action
+Init	.\Actions\ActionCallFunc.cs	/^    public override void Init() {}$/;"	m	class:ActionCallFunc
+Init	.\Actions\ActionDelay.cs	/^    public override void Init() {}$/;"	m	class:ActionDelay
+Init	.\Actions\ActionMoveBy.cs	/^    public override void Init() {}$/;"	m	class:ActionMoveBy
+Init	.\Actions\ActionMoveTo.cs	/^    public override void Init() {}$/;"	m	class:ActionMoveTo
+Init	.\Actions\ActionSequence.cs	/^    public override void Init() {}$/;"	m	class:ActionSequence
+Init	.\Actions\ActionSpawn.cs	/^    public override void Init() {$/;"	m	class:ActionSpawn
+Init	.\EventManager.cs	/^    public void Init() {}$/;"	m	class:EventManager
+Init	.\GameKernel.cs	/^    void Init();$/;"	m	interface:IGameManager
+Init	.\InputManager.cs	/^    public void Init() {$/;"	m	class:InputManager
+Init	.\LevelManager.cs	/^    public void Init() {$/;"	m	class:LevelManager
+InitInputOnMobile	.\InputManager.cs	/^    void InitInputOnMobile() {$/;"	m	class:InputManager	file:
+InitInputOnPC	.\InputManager.cs	/^    void InitInputOnPC() {$/;"	m	class:InputManager	file:
+InputKey	.\InputManager.cs	/^public enum InputKey {$/;"	g
+InputManager	.\InputManager.cs	/^public class InputManager : IGameManager {$/;"	c
+InputTest	.\InputManager.cs	/^    void InputTest() {$/;"	m	class:InputManager	file:
+IsFinished	.\Actions\Action.cs	/^    public bool IsFinished() {$/;"	m	class:Action
+Jump	.\InputManager.cs	/^    Jump, Action$/;"	e	enum:InputKey	file:
+KeyInfo	.\InputManager.cs	/^        public KeyInfo(bool status, bool up, bool down) {$/;"	m	struct:InputManager.KeyInfo
+KeyInfo	.\InputManager.cs	/^    struct KeyInfo {$/;"	s	class:InputManager
+Left	.\InputManager.cs	/^    Left, Right, Up, Down, $/;"	e	enum:InputKey	file:
+Level	.\Levels\Level.cs	/^    public Level() {$/;"	m	class:Level
+Level	.\Levels\Level.cs	/^public class Level {$/;"	c
+Level001	.\Levels\Level001.cs	/^    public Level001() {$/;"	m	class:Level001
+Level001	.\Levels\Level001.cs	/^public class Level001 : Level {$/;"	c
+Level002	.\Levels\Level002.cs	/^    public Level002() {$/;"	m	class:Level002
+Level002	.\Levels\Level002.cs	/^public class Level002 : Level {$/;"	c
+LevelManager	.\LevelManager.cs	/^public class LevelManager : IGameManager {$/;"	c
+Locked	.\Puzzles\TeleportPuzzle.cs	/^    Locked,$/;"	e	enum:state	file:
+OR	.\Puzzles\Puzzle.cs	/^    OR,$/;"	e	enum:TriggerType	file:
+OnDestroy	.\GameKernel.cs	/^    void OnDestroy() {$/;"	m	class:GameKernel	file:
+OnEnter	.\Levels\Level.cs	/^    public virtual void OnEnter() {$/;"	m	class:Level
+OnEnter	.\Levels\Level001.cs	/^    public override void OnEnter() {$/;"	m	class:Level001
+OnEnter	.\Levels\Level002.cs	/^    public override void OnEnter() {$/;"	m	class:Level002
+OnEnter	.\Levels\StartLevel.cs	/^    public override void OnEnter() {$/;"	m	class:StartLevel
+OnEvent	.\EventManager.cs	/^    void OnEvent(string eventName, object data);$/;"	m	interface:IEventListener
+OnExit	.\Levels\Level.cs	/^    public virtual void OnExit() {$/;"	m	class:Level
+OnExit	.\Levels\Level001.cs	/^    public override void OnExit() {$/;"	m	class:Level001
+OnExit	.\Levels\Level002.cs	/^    public override void OnExit() {$/;"	m	class:Level002
+OnExit	.\Levels\StartLevel.cs	/^    public override void OnExit() {}$/;"	m	class:StartLevel
+OnTriggerDown	.\Puzzles\ButtonPuzzle.cs	/^    void OnTriggerDown() {$/;"	m	class:ButtonPuzzle	file:
+OnTriggerDown	.\Puzzles\DoorPuzzle.cs	/^    void OnTriggerDown() {$/;"	m	class:DoorPuzzle	file:
+OnTriggerEnter	.\Puzzles\UntouchablePuzzle.cs	/^    void OnTriggerEnter(Collider other)$/;"	m	class:UntouchablePuzzle	file:
+OnTriggerUp	.\Puzzles\ButtonPuzzle.cs	/^    void OnTriggerUp() {$/;"	m	class:ButtonPuzzle	file:
+OnTriggerUp	.\Puzzles\DoorPuzzle.cs	/^    void OnTriggerUp() {$/;"	m	class:DoorPuzzle	file:
+PlayerActionPuzzle	.\Puzzles\PlayerActionPuzzle.cs	/^public class PlayerActionPuzzle : Puzzle {$/;"	c
+PlayerControl	.\UnityScript\PlayerControl.cs	/^public class PlayerControl : MonoBehaviour {$/;"	c
+Puzzle	.\Puzzles\Puzzle.cs	/^public class Puzzle : MonoBehaviour {$/;"	c
+PuzzleType	.\Puzzles\Puzzle.cs	/^public enum PuzzleType {$/;"	g
+RANGE_IN	.\Puzzles\Puzzle.cs	/^    RANGE_IN, $/;"	e	enum:PuzzleType	file:
+RANGE_OUT	.\Puzzles\Puzzle.cs	/^    RANGE_OUT, $/;"	e	enum:PuzzleType	file:
+RemoveEventListener	.\EventManager.cs	/^    public void RemoveEventListener(string eventName, IEventListener listener) {$/;"	m	class:EventManager
+Right	.\InputManager.cs	/^    Left, Right, Up, Down, $/;"	e	enum:InputKey	file:
+RopePuzzle	.\Puzzles\RopePuzzle.cs	/^public class RopePuzzle : Puzzle {$/;"	c
+RunAction	.\ActionManager.cs	/^    public void RunAction(Action ac) {$/;"	m	class:ActionManager
+SWITCH_OFF	.\Puzzles\Puzzle.cs	/^    SWITCH_OFF, $/;"	e	enum:PuzzleType	file:
+SWITCH_ON	.\Puzzles\Puzzle.cs	/^    SWITCH_ON, $/;"	e	enum:PuzzleType	file:
+Start	.\GameKernel.cs	/^    void Start() {$/;"	m	class:GameKernel	file:
+Start	.\Puzzles\BoxPuzzle.cs	/^    void Start()$/;"	m	class:BoxPuzzle	file:
+Start	.\Puzzles\ButtonPuzzle.cs	/^    void Start() {$/;"	m	class:ButtonPuzzle	file:
+Start	.\Puzzles\ClambPuzzle.cs	/^    void Start()$/;"	m	class:ClambPuzzle	file:
+Start	.\Puzzles\DoorPuzzle.cs	/^    void Start() {$/;"	m	class:DoorPuzzle	file:
+Start	.\Puzzles\PlayerActionPuzzle.cs	/^    void Start() {$/;"	m	class:PlayerActionPuzzle	file:
+Start	.\Puzzles\Puzzle.cs	/^    void Start () {$/;"	m	class:Puzzle	file:
+Start	.\Puzzles\RopePuzzle.cs	/^    void Start() {$/;"	m	class:RopePuzzle	file:
+Start	.\Puzzles\TeleportPuzzle.cs	/^    void Start () {$/;"	m	class:TeleportPuzzle	file:
+Start	.\Puzzles\UntouchablePuzzle.cs	/^	void Start () {$/;"	m	class:UntouchablePuzzle	file:
+Start	.\UnityScript\PlayerControl.cs	/^	void Start () {$/;"	m	class:PlayerControl	file:
+StartLevel	.\Levels\StartLevel.cs	/^    public StartLevel() {$/;"	m	class:StartLevel
+StartLevel	.\Levels\StartLevel.cs	/^public class StartLevel : Level {$/;"	c
+TeleportPuzzle	.\Puzzles\TeleportPuzzle.cs	/^public class TeleportPuzzle : Puzzle$/;"	c
+TriggerType	.\Puzzles\Puzzle.cs	/^public enum TriggerType {$/;"	g
+UnLocked	.\Puzzles\TeleportPuzzle.cs	/^    UnLocked,$/;"	e	enum:state	file:
+UntouchablePuzzle	.\Puzzles\UntouchablePuzzle.cs	/^public class UntouchablePuzzle : MonoBehaviour {$/;"	c
+Up	.\InputManager.cs	/^    Left, Right, Up, Down, $/;"	e	enum:InputKey	file:
+Update	.\ActionManager.cs	/^    public void Update() {$/;"	m	class:ActionManager
+Update	.\Actions\Action.cs	/^    public virtual void Update() {}$/;"	m	class:Action
+Update	.\Actions\ActionCallFunc.cs	/^    public override void Update() {$/;"	m	class:ActionCallFunc
+Update	.\Actions\ActionDelay.cs	/^    public override void Update() {$/;"	m	class:ActionDelay
+Update	.\Actions\ActionMoveBy.cs	/^    public override void Update() {$/;"	m	class:ActionMoveBy
+Update	.\Actions\ActionMoveTo.cs	/^    public override void Update() {$/;"	m	class:ActionMoveTo
+Update	.\Actions\ActionSequence.cs	/^    public override void Update() {$/;"	m	class:ActionSequence
+Update	.\Actions\ActionSpawn.cs	/^    public override void Update() {$/;"	m	class:ActionSpawn
+Update	.\EventManager.cs	/^    public void Update() {}$/;"	m	class:EventManager
+Update	.\GameKernel.cs	/^    void Update() {$/;"	m	class:GameKernel	file:
+Update	.\GameKernel.cs	/^    void Update();$/;"	m	interface:IGameManager
+Update	.\InputManager.cs	/^    public void Update() {$/;"	m	class:InputManager
+Update	.\LevelManager.cs	/^    public void Update() {$/;"	m	class:LevelManager
+Update	.\Levels\Level.cs	/^    public virtual void Update() {$/;"	m	class:Level
+Update	.\Levels\Level001.cs	/^    public override void Update() {}$/;"	m	class:Level001
+Update	.\Levels\Level002.cs	/^    public override void Update() {}$/;"	m	class:Level002
+Update	.\Levels\StartLevel.cs	/^    public override void Update() {}$/;"	m	class:StartLevel
+Update	.\Puzzles\BoxPuzzle.cs	/^    public override void Update()$/;"	m	class:BoxPuzzle
+Update	.\Puzzles\ButtonPuzzle.cs	/^    public override void Update() {$/;"	m	class:ButtonPuzzle
+Update	.\Puzzles\ClambPuzzle.cs	/^    public override void Update()$/;"	m	class:ClambPuzzle
+Update	.\Puzzles\DoorPuzzle.cs	/^    public override void Update() {$/;"	m	class:DoorPuzzle
+Update	.\Puzzles\PlayerActionPuzzle.cs	/^    public override void Update() {$/;"	m	class:PlayerActionPuzzle
+Update	.\Puzzles\Puzzle.cs	/^    public virtual void Update () {$/;"	m	class:Puzzle
+Update	.\Puzzles\RopePuzzle.cs	/^    public override void Update() {$/;"	m	class:RopePuzzle
+Update	.\Puzzles\TeleportPuzzle.cs	/^	public override void Update () {$/;"	m	class:TeleportPuzzle
+Update	.\Puzzles\UntouchablePuzzle.cs	/^	void Update () {$/;"	m	class:UntouchablePuzzle	file:
+Update	.\UnityScript\PlayerControl.cs	/^	void Update () {$/;"	m	class:PlayerControl	file:
+actionList	.\ActionManager.cs	/^    Dictionary<GameObject, Action> actionList = new Dictionary<GameObject, Action>(30);$/;"	f	class:ActionManager	file:
+actionManager	.\GameKernel.cs	/^    public static ActionManager actionManager = new ActionManager();$/;"	f	class:GameKernel
+actions	.\Actions\ActionSequence.cs	/^    private List<Action> actions;$/;"	f	class:ActionSequence	file:
+actions	.\Actions\ActionSpawn.cs	/^    private List<Action> actions;$/;"	f	class:ActionSpawn	file:
+body	.\UnityScript\PlayerControl.cs	/^    private Rigidbody2D body;$/;"	f	class:PlayerControl	file:
+curLevel	.\LevelManager.cs	/^    public Level curLevel = null;$/;"	f	class:LevelManager
+current	.\Actions\ActionSequence.cs	/^    private int current = 0;$/;"	f	class:ActionSequence	file:
+data	.\Actions\ActionCallFunc.cs	/^    private object data;$/;"	f	class:ActionCallFunc	file:
+delFunc	.\Actions\ActionCallFunc.cs	/^    private CallFuncDelegate delFunc;$/;"	f	class:ActionCallFunc	file:
+destination	.\Actions\ActionMoveTo.cs	/^    private Vector3 destination;$/;"	f	class:ActionMoveTo	file:
+distance	.\Actions\ActionMoveBy.cs	/^    private float distance;$/;"	f	class:ActionMoveBy	file:
+distance	.\Puzzles\BoxPuzzle.cs	/^    private Vector3 distance;$/;"	f	class:BoxPuzzle	file:
+enable	.\InputManager.cs	/^    private bool enable = false;$/;"	f	class:InputManager	file:
+eventManager	.\GameKernel.cs	/^    public static EventManager eventManager = new EventManager();$/;"	f	class:GameKernel
+f	.\Puzzles\TeleportPuzzle.cs	/^    private bool f = false;$/;"	f	class:TeleportPuzzle	file:
+gameManagers	.\GameKernel.cs	/^    List<IGameManager> gameManagers = new List<IGameManager>();$/;"	f	class:GameKernel	file:
+gameObject	.\Actions\Action.cs	/^    protected GameObject gameObject;$/;"	f	class:Action
+initTransition	.\LevelManager.cs	/^    private bool initTransition = true;$/;"	f	class:LevelManager	file:
+inputDict	.\InputManager.cs	/^    private Dictionary<InputKey, KeyInfo> inputDict = new Dictionary<InputKey, KeyInfo>(10);$/;"	f	class:InputManager	file:
+inputManager	.\GameKernel.cs	/^    public static InputManager inputManager = new InputManager();$/;"	f	class:GameKernel
+isFinished	.\Actions\Action.cs	/^    protected bool isFinished = false;$/;"	f	class:Action
+isPermanentChange	.\Puzzles\Puzzle.cs	/^    public bool isPermanentChange = false;$/;"	f	class:Puzzle
+isTriggered	.\Puzzles\Puzzle.cs	/^    public bool isTriggered = false;$/;"	f	class:Puzzle
+isTriggeredLastTime	.\Puzzles\Puzzle.cs	/^    private bool isTriggeredLastTime = false;$/;"	f	class:Puzzle	file:
+jumpImpulse	.\UnityScript\PlayerControl.cs	/^    public float jumpImpulse = 5.0f;$/;"	f	class:PlayerControl
+keyDown	.\InputManager.cs	/^        public bool keyDown;$/;"	f	struct:InputManager.KeyInfo
+keyMap	.\InputManager.cs	/^    private Dictionary<InputKey, KeyCode> keyMap = new Dictionary<InputKey, KeyCode>(10);    $/;"	f	class:InputManager	file:
+keyStatus	.\InputManager.cs	/^        public bool keyStatus;$/;"	f	struct:InputManager.KeyInfo
+keyUp	.\InputManager.cs	/^        public bool keyUp;$/;"	f	struct:InputManager.KeyInfo
+length	.\Puzzles\RopePuzzle.cs	/^    public int length = 0;$/;"	f	class:RopePuzzle
+levelManager	.\GameKernel.cs	/^    public static LevelManager levelManager = new LevelManager();$/;"	f	class:GameKernel
+listenerTable	.\EventManager.cs	/^    Dictionary<string, List<IEventListener>> listenerTable = new Dictionary<string, List<IEventListener>>();$/;"	f	class:EventManager	file:
+m	.\Puzzles\BoxPuzzle.cs	/^    static float m;$/;"	f	class:BoxPuzzle	file:
+maxSpeed	.\UnityScript\PlayerControl.cs	/^    public float maxSpeed = 3.0f;$/;"	f	class:PlayerControl
+moveImpulse	.\UnityScript\PlayerControl.cs	/^    public float moveImpulse = 0.2f;$/;"	f	class:PlayerControl
+name	.\Levels\Level.cs	/^    public string name;$/;"	f	class:Level
+offset	.\Actions\ActionMoveBy.cs	/^    private Vector3 offset;$/;"	f	class:ActionMoveBy	file:
+offset	.\Puzzles\RopePuzzle.cs	/^    public float offset = 0.3f;$/;"	f	class:RopePuzzle
+pass	.\Actions\ActionDelay.cs	/^    private float pass;$/;"	f	class:ActionDelay	file:
+pass	.\Actions\ActionMoveBy.cs	/^    private float pass;$/;"	f	class:ActionMoveBy	file:
+player	.\Puzzles\BoxPuzzle.cs	/^    public Transform player;$/;"	f	class:BoxPuzzle
+player	.\Puzzles\ClambPuzzle.cs	/^    public Transform player;$/;"	f	class:ClambPuzzle
+player	.\Puzzles\TeleportPuzzle.cs	/^    public Transform player;$/;"	f	class:TeleportPuzzle
+player	.\Puzzles\UntouchablePuzzle.cs	/^    public Transform player;$/;"	f	class:UntouchablePuzzle
+puzzleTypes	.\Puzzles\Puzzle.cs	/^    public List<PuzzleType> puzzleTypes = new List<PuzzleType>();$/;"	f	class:Puzzle
+puzzles	.\Puzzles\Puzzle.cs	/^    public List<Puzzle> puzzles = new List<Puzzle>();$/;"	f	class:Puzzle
+range	.\Puzzles\Puzzle.cs	/^    public Vector2 range = new Vector2(0.0f, 0.0f);$/;"	f	class:Puzzle
+rope	.\Puzzles\RopePuzzle.cs	/^    private List<GameObject> rope;$/;"	f	class:RopePuzzle	file:
+segMass	.\Puzzles\RopePuzzle.cs	/^    public float segMass = 0.1f;$/;"	f	class:RopePuzzle
+segSize	.\Puzzles\RopePuzzle.cs	/^    public Vector2 segSize = new Vector2(0.1f, 0.3f);$/;"	f	class:RopePuzzle
+speed	.\Actions\ActionMoveBy.cs	/^    private float speed;$/;"	f	class:ActionMoveBy	file:
+speed	.\Actions\ActionMoveTo.cs	/^    private float speed;$/;"	f	class:ActionMoveTo	file:
+sprite	.\Puzzles\ButtonPuzzle.cs	/^    Transform sprite;$/;"	f	class:ButtonPuzzle	file:
+sprite	.\Puzzles\ClambPuzzle.cs	/^    private GameObject sprite;\/\/人物的形体$/;"	f	class:ClambPuzzle	file:
+sprite	.\Puzzles\DoorPuzzle.cs	/^    Transform sprite;$/;"	f	class:DoorPuzzle	file:
+sprite	.\Puzzles\RopePuzzle.cs	/^    public Sprite sprite;$/;"	f	class:RopePuzzle
+spriteScale	.\Puzzles\RopePuzzle.cs	/^    public Vector3 spriteScale = new Vector3(1f, 3f, 1f);$/;"	f	class:RopePuzzle
+state	.\Puzzles\TeleportPuzzle.cs	/^public enum state$/;"	g
+t_state	.\Puzzles\TeleportPuzzle.cs	/^    static state t_state = state.UnLocked;$/;"	f	class:TeleportPuzzle	file:
+time	.\Actions\ActionDelay.cs	/^    private float time;$/;"	f	class:ActionDelay	file:
+timer	.\LevelManager.cs	/^    private int timer = 0;$/;"	f	class:LevelManager	file:
+triggerType	.\Puzzles\Puzzle.cs	/^    public TriggerType triggerType;$/;"	f	class:Puzzle
+v	.\Puzzles\ClambPuzzle.cs	/^    public Vector3 v;\/\/要移动到的地点$/;"	f	class:ClambPuzzle
+v	.\Puzzles\TeleportPuzzle.cs	/^    private Vector3 v;\/\/与传送器的相对位置$/;"	f	class:TeleportPuzzle	file:
