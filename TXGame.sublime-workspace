@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"Ve",
+				"Vector3"
+			],
+			[
+				"Ass",
+				"Assert"
+			],
+			[
+				"I",
+				"Idle"
+			],
+			[
+				"s",
+				"StateMachine"
+			],
+			[
+				"gr",
+				"grabPos"
+			],
+			[
+				"Ge",
+				"GetComponent"
+			],
+			[
+				"pa",
+				"player"
+			],
+			[
+				"co",
+				"connectedBody"
+			],
+			[
+				"gra",
+				"grabSeg"
+			],
+			[
+				"ga",
+				"grabPos"
+			],
+			[
+				"rp",
+				"rope"
+			],
+			[
 				"seg",
 				"segMass"
 			],
@@ -62,10 +106,6 @@
 			[
 				"a",
 				"ac1"
-			],
-			[
-				"ga",
-				"gameObject"
 			],
 			[
 				"key",
@@ -186,10 +226,6 @@
 			[
 				"keyM",
 				"keyMap"
-			],
-			[
-				"Ge",
-				"GetEnumerator"
 			],
 			[
 				"le",
@@ -348,10 +384,6 @@
 				"GameObject"
 			],
 			[
-				"pa",
-				"parent"
-			],
-			[
 				"b",
 				"blackrenderer"
 			],
@@ -390,10 +422,6 @@
 			[
 				"Sta",
 				"StartNewGame"
-			],
-			[
-				"co",
-				"color"
 			],
 			[
 				"re",
@@ -472,10 +500,6 @@
 				"verticesCount"
 			],
 			[
-				"Ve",
-				"vertices"
-			],
-			[
 				"tian",
 				"triangles"
 			],
@@ -490,30 +514,6 @@
 			[
 				"ti",
 				"timer"
-			],
-			[
-				"Re",
-				"RemoveAt"
-			],
-			[
-				"di",
-				"disappearTime"
-			],
-			[
-				"te",
-				"timer"
-			],
-			[
-				"or",
-				"originRotation"
-			],
-			[
-				"Tr",
-				"triangles"
-			],
-			[
-				"tra",
-				"transform"
 			]
 		]
 	},
@@ -559,7 +559,7 @@
 			"file": "Assets/Script/Puzzles/RopePuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 1895,
+				"buffer_size": 3032,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -595,7 +595,34 @@
 			"file": "Assets/Script/UnityScript/PlayerControl.cs",
 			"settings":
 			{
-				"buffer_size": 1025,
+				"buffer_size": 1431,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Script/States/StateMachine.cs",
+			"settings":
+			{
+				"buffer_size": 1370,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Script/States/PlayerStates.cs",
+			"settings":
+			{
+				"buffer_size": 1954,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Script/UnityScript/CameraControl.cs",
+			"settings":
+			{
+				"buffer_size": 414,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -608,10 +635,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "install",
+		"height": 173.0,
+		"last_filter": "remove",
 		"selected_items":
 		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -630,10 +669,6 @@
 			],
 			[
 				"Package Control: re",
-				"Package Control: Remove Package"
-			],
-			[
-				"remove",
 				"Package Control: Remove Package"
 			],
 			[
@@ -734,6 +769,10 @@
 	],
 	"file_history":
 	[
+		"/E/Work/Code/Unity/TXGame/Assets/Script/StateManager.cs",
+		"/C/Users/kaiji/AppData/Roaming/Sublime Text 3/Packages/Package Syncing/Package Syncing.sublime-settings",
+		"/C/Users/kaiji/AppData/Roaming/Sublime Text 3/Packages/User/Package Syncing.sublime-settings",
+		"/C/Users/kaiji/Desktop/TXGame/人物动画/人物动画/rename.sh",
 		"/E/Work/Code/Unity/GAD_MiniGame/Build/game_Datagamedata.xml",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Puzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Actions/ActionSpawn.cs",
@@ -857,11 +896,7 @@
 		"/C/Users/kaiji/Desktop/module clock();",
 		"/E/Work/Code/Unity/ProjectX/Assets/Script/Actions/ActionMoveTo.cs",
 		"/E/Work/Code/Unity/ProjectX/Assets/Script/StartGameScript.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish2AControl.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish1BControl.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish2BControl.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish1AControl.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/BackgroundFader.cs"
+		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish2AControl.cs"
 	],
 	"find":
 	{
@@ -881,6 +916,23 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"gameObject",
+			"Move",
+			"PlayerMoveState",
+			"stateMachine",
+			"StateMachine",
+			"Ass",
+			"Actor",
+			"actor",
+			"grabObject",
+			"HingeJoint2D",
+			"DistanceJoint2D",
+			"HingeJoint2D",
+			"joint",
+			"HingeJoint2D",
+			"Assert",
+			"player",
+			"\\",
 			"Vector2",
 			"HingeJoint2D",
 			"Ass",
@@ -991,24 +1043,7 @@
 			"100 100",
 			" 22",
 			"18",
-			"pic1/",
-			"s1",
-			"stduent",
-			"<",
-			"struct ",
-			"float ",
-			"canvas",
-			"gray",
-			"gray * ",
-			"src",
-			"texColors",
-			"Debug.Log",
-			"_img",
-			"Threading",
-			"TestScript",
-			"OpenCvTest",
-			"cube",
-			"92 112"
+			"pic1/"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1076,7 +1111,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -1092,8 +1127,8 @@
 						"selection":
 						[
 							[
-								1438,
-								1438
+								1361,
+								1361
 							]
 						],
 						"settings":
@@ -1104,10 +1139,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1123,8 +1158,8 @@
 						"selection":
 						[
 							[
-								696,
-								696
+								40,
+								43
 							]
 						],
 						"settings":
@@ -1135,10 +1170,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1154,8 +1189,8 @@
 						"selection":
 						[
 							[
-								358,
-								358
+								196,
+								196
 							]
 						],
 						"settings":
@@ -1167,7 +1202,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1183,8 +1218,157 @@
 						"selection":
 						[
 							[
-								316,
-								316
+								196,
+								203
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Assets/Script/Puzzles/RopePuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2755,
+								2755
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 864.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Assets/Script/Puzzles/BoxPuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								48,
+								48
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Assets/Script/Puzzles/PlayerActionPuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								89,
+								45
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Assets/Script/Puzzles/ButtonPuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								501,
+								501
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Assets/Script/UnityScript/PlayerControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								702,
+								702
 							]
 						],
 						"settings":
@@ -1202,55 +1386,29 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Assets/Script/Puzzles/RopePuzzle.cs",
+					"buffer": 9,
+					"file": "Assets/Script/States/StateMachine.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1895,
+						"buffer_size": 1370,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1817,
-								1817
+								551,
+								551
 							]
 						],
 						"settings":
 						{
 							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Assets/Script/Puzzles/BoxPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								302,
-								302
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1260,94 +1418,67 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "Assets/Script/Puzzles/PlayerActionPuzzle.cs",
+					"buffer": 10,
+					"file": "Assets/Script/States/PlayerStates.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 331,
+						"buffer_size": 1954,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								77,
-								88
+								1364,
+								1364
 							]
 						],
 						"settings":
 						{
 							"is_init_dirty_state": false,
+							"origin_encoding":
+							[
+								"Chinese Simplified (GBK)",
+								"GBK"
+							],
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Assets/Script/UnityScript/CameraControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Assets/Script/Puzzles/ButtonPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 751,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								134,
-								134
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Assets/Script/UnityScript/PlayerControl.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1025,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
