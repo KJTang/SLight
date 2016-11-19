@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections;
+using System;
 
 public class BoxPuzzle : Puzzle
 {
+    private Vector2 maxSpeed;
+    private float moveImpulse = 0.2f;
     public Transform player;
-    private Vector3 distance;
-    static float m;
+    public Vector2 force;
+    public Rigidbody2D body; 
     void Start()
     {
-        m = gameObject.GetComponent<Rigidbody2D>().mass;
         Assert.IsNotNull(player);
+        maxSpeed = player.GetComponent<PlayerControl>().maxSpeed;
+        moveImpulse = player.GetComponent<PlayerControl>().moveImpulse;
+        body = gameObject.GetComponent<Rigidbody2D>();
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
     public override void Update()
@@ -20,19 +26,23 @@ public class BoxPuzzle : Puzzle
         if (GetTriggerDown())
         {
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            gameObject.GetComponent<Rigidbody2D>().mass = 0;
-            distance = player.position - transform.position;
-            Debug.Log(distance);
         }
         if (GetTrigger())
         {
-            transform.position = player.position - distance;           
+            if (Math.Abs(body.velocity.x) <= maxSpeed.x)
+            {
+                if (GameKernel.inputManager.GetKey(InputKey.Left))
+                {
+                    body.AddForce(new Vector2(-moveImpulse, 0.0f), ForceMode2D.Impulse);
+                }
+                if (GameKernel.inputManager.GetKey(InputKey.Right))
+                {
+                    body.AddForce(new Vector2(moveImpulse, 0.0f), ForceMode2D.Impulse);
+                }
+            }   
         }
         if (GetTriggerUp())
         {
-            gameObject.GetComponent<Rigidbody2D>().mass = m;
-            Debug.Log(gameObject.GetComponent<Rigidbody2D>().mass+"kg");
-            gameObject.GetComponent<Rigidbody2D>().velocity = zero;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             transform.rotation = new Quaternion(0,0,0,0);//排除移动箱子以后不能左右跳跃的bug
         }
