@@ -5,43 +5,36 @@ using System;
 using System.Collections.Generic;
 
 
-public enum state
-{
-    Locked,
-    UnLocked,
-};
-
 public class TeleportPuzzle : Puzzle
-{//连接谜题：0：player(PuzzleType:RANGE_IN)，1：another teleport（PuzzleType：SWITCH_OFF）。TriggerType.AND
+{
     public Transform player;
-    private Vector3 v;//与传送器的相对位置
-    private bool f = false;
-    // Use this for initialization
-    static state t_state = state.UnLocked;
+    public Transform destination;
+
+    private bool flag = false;
     void Start () {
         Assert.IsNotNull(player);
+        Assert.IsNotNull(destination);
     }
 	
 	// Update is called once per frame
 	public override void Update () {
         base.Update();
-        if (GetTriggerDown())
-        {   
-            v = player.position - transform.position;
-        }
-
-        if (GetTrigger()&& t_state == state.UnLocked)
+        if (GetTriggerDown()&&flag == false)
         {
-            player.position = puzzles[1].transform.position + v;
-            t_state = state.Locked;
-            f = true;
+            GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                new ActionDelay(gameObject, 0.5f),
+                new ActionCallFunc(player.gameObject, (object obj) =>
+                {
+                    GameObject go = (GameObject)obj;
+                    go.transform.position = destination.position;
+                }, player.gameObject)
+                )
+            );
+            destination.gameObject.GetComponent<TeleportPuzzle>().flag = true;
         }
-        if ((Math.Abs(player.position.x - puzzles[1].transform.position.x) > range.x ||
-            Math.Abs(player.position.y - puzzles[1].transform.position.y) > range.y) &&
-            f == true)
+        if (GetTriggerUp())
         {
-            t_state = state.UnLocked;
-            f = false;
+            flag = false;
         }
         }
 }
