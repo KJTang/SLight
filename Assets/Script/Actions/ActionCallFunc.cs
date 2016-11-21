@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 // usage example: 
-// CallFuncDelegate func = (object obj) {
+// CallFuncDelegate func = (object obj) => {
 //     Debug.Log("message: " + (string)obj);
 // };
 // GameKernel.actionManager.RunAction(new ActionCallFunc(gameObject, func, "this is a msg."));

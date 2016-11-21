@@ -12,9 +12,11 @@ public class RopePuzzle : Puzzle {
     public Vector3 spriteScale = new Vector3(1f, 3f, 1f);
     public int grabPos = 0;
     public GameObject grabTrigger;
+    public float reGrabDelay= 1.5f;
 
     private List<GameObject> rope;
     private bool isGrabbing = false;
+    private Joint2D grabJoint;
 
     void Start() {
         Assert.IsNotNull(sprite);
@@ -36,6 +38,7 @@ public class RopePuzzle : Puzzle {
             Rigidbody2D body = seg.AddComponent<Rigidbody2D>();
             // BoxCollider2D collider = seg.AddComponent<BoxCollider2D>();
             // HingeJoint2D joint = seg.AddComponent<HingeJoint2D>();
+            // FixedJoint2D joint = seg.AddComponent<FixedJoint2D>();
             DistanceJoint2D joint = seg.AddComponent<DistanceJoint2D>();
             joint.distance = 0.01f;
             body.useAutoMass = false;
@@ -65,8 +68,17 @@ public class RopePuzzle : Puzzle {
             }
         } else {
             if (GameKernel.inputManager.GetKeyDown(InputKey.Jump)) {
-                Destroy(rope[grabPos].GetComponent<FixedJoint2D>());
+                Destroy(grabJoint);
                 isGrabbing = false;
+
+                GameKernel.actionManager.RunAction(new ActionSequence(gameObject, 
+                    new ActionDelay(gameObject, reGrabDelay), 
+                    new ActionCallFunc(gameObject, (object obj) => {
+                        GameObject go = (GameObject)obj;
+                        go.SetActive(true);
+                        }, grabTrigger)
+                    )
+                );
             }
         }
     }
@@ -76,8 +88,10 @@ public class RopePuzzle : Puzzle {
         Assert.IsNotNull(player);
         GameObject grabSeg = rope[grabPos];
         player.transform.position = grabSeg.transform.position;
-        FixedJoint2D joint = grabSeg.AddComponent<FixedJoint2D>();
-        joint.connectedBody = player.GetComponent<Rigidbody2D>();
+        grabJoint = grabSeg.AddComponent<FixedJoint2D>();
+        grabJoint.connectedBody = player.GetComponent<Rigidbody2D>();
         isGrabbing = true;
+
+        grabTrigger.SetActive(false);
     }
 }
