@@ -73,18 +73,13 @@ public class PlayerWalkState : State {
             return;
         }
         // still Walk
-        Vector3 scale = stateMachine.gameObject.transform.localScale;
-        if (velocity.x >= 0.0f) {
-            stateMachine.gameObject.transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
-        } else {
-            stateMachine.gameObject.transform.localScale = new Vector3(-Math.Abs(scale.x), scale.y, scale.z);
-        }
-        // Impulse
-        if (Math.Abs(body.velocity.x) <= script.maxSpeed.x) {
-            if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            if (body.velocity.x >= -script.maxSpeed.x) {
                 body.AddForce(new Vector2(-script.moveImpulse, 0.0f), ForceMode2D.Impulse);
             }
-            if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+        }
+        if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            if (body.velocity.x <= script.maxSpeed.x) {
                 body.AddForce(new Vector2(script.moveImpulse, 0.0f), ForceMode2D.Impulse);
             }
         }
@@ -124,22 +119,24 @@ public class PlayerJumpState : State {
     }
 
     public override void Update() {
-        // Idle
+        // Idle or Walk
         if (collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
-            stateMachine.ChangeState("Idle");
+            if (Math.Abs(body.velocity.x) <= 0.0f) {
+                stateMachine.ChangeState("Idle");
+            } else {
+                stateMachine.ChangeState("Walk");
+            }
             return;
         }
         // still Jump
-        Vector3 scale = stateMachine.gameObject.transform.localScale;
-        // Impulse
-        if (Math.Abs(body.velocity.x) <= script.maxSpeed.x) {
-            if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            if (body.velocity.x >= -script.maxSpeed.x) {
                 body.AddForce(new Vector2(-script.moveImpulse, 0.0f), ForceMode2D.Impulse);
-                stateMachine.gameObject.transform.localScale = new Vector3(-Math.Abs(scale.x), scale.y, scale.z);
             }
-            if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+        }
+        if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            if (body.velocity.x <= script.maxSpeed.x) {
                 body.AddForce(new Vector2(script.moveImpulse, 0.0f), ForceMode2D.Impulse);
-                stateMachine.gameObject.transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
             }
         }
     }

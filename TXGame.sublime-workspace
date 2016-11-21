@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"sc",
+				"script"
+			],
+			[
+				"L",
+				"Left"
+			],
+			[
+				"lay",
+				"LayerMask"
+			],
+			[
+				"co",
+				"collider"
+			],
+			[
+				"CO",
+				"Collider2D"
+			],
+			[
+				"Ri",
+				"Rigidbody2D"
+			],
+			[
+				"Clo",
+				"Collider2D"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
 				"Ve",
 				"Vector3"
 			],
@@ -32,10 +68,6 @@
 				"player"
 			],
 			[
-				"co",
-				"connectedBody"
-			],
-			[
 				"gra",
 				"grabSeg"
 			],
@@ -62,10 +94,6 @@
 			[
 				"Ad",
 				"AddComponent"
-			],
-			[
-				"tr",
-				"transform"
 			],
 			[
 				"RO",
@@ -304,10 +332,6 @@
 				"Threading"
 			],
 			[
-				"sc",
-				"scaleX"
-			],
-			[
 				"V",
 				"Val0"
 			],
@@ -354,10 +378,6 @@
 			[
 				"x",
 				"X"
-			],
-			[
-				"L",
-				"Log"
 			],
 			[
 				"haa",
@@ -494,26 +514,6 @@
 			[
 				"tri",
 				"triangles"
-			],
-			[
-				"ver",
-				"verticesCount"
-			],
-			[
-				"tian",
-				"triangles"
-			],
-			[
-				"t",
-				"trianglesCount"
-			],
-			[
-				"Trans",
-				"TransformPoint"
-			],
-			[
-				"ti",
-				"timer"
 			]
 		]
 	},
@@ -568,7 +568,7 @@
 			"file": "Assets/Script/Puzzles/BoxPuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 1217,
+				"buffer_size": 0,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -595,7 +595,7 @@
 			"file": "Assets/Script/UnityScript/PlayerControl.cs",
 			"settings":
 			{
-				"buffer_size": 1431,
+				"buffer_size": 1642,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -613,7 +613,7 @@
 			"file": "Assets/Script/States/PlayerStates.cs",
 			"settings":
 			{
-				"buffer_size": 1954,
+				"buffer_size": 5038,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -622,7 +622,7 @@
 			"file": "Assets/Script/UnityScript/CameraControl.cs",
 			"settings":
 			{
-				"buffer_size": 414,
+				"buffer_size": 637,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -769,6 +769,9 @@
 	],
 	"file_history":
 	[
+		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/GroundCheck.cs",
+		"/C/Users/kaiji/Desktop/shadowsocks/Shadowsocks-3.2/gui-config.json",
+		"/E/Work/Code/Unity/TXGame/Assets/Resources/Actor/Jump/rename.sh",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/StateManager.cs",
 		"/C/Users/kaiji/AppData/Roaming/Sublime Text 3/Packages/Package Syncing/Package Syncing.sublime-settings",
 		"/C/Users/kaiji/AppData/Roaming/Sublime Text 3/Packages/User/Package Syncing.sublime-settings",
@@ -893,10 +896,7 @@
 		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/Background.cs",
 		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/StartButton.cs",
 		"/G/HUST/数电课设/project_1/project_1.srcs/sim_1/new/clock_tb.v",
-		"/C/Users/kaiji/Desktop/module clock();",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/Actions/ActionMoveTo.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/StartGameScript.cs",
-		"/E/Work/Code/Unity/ProjectX/Assets/Script/UnityScripts/fish/Fish2AControl.cs"
+		"/C/Users/kaiji/Desktop/module clock();"
 	],
 	"find":
 	{
@@ -916,6 +916,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"is",
+			"ResetTrigger",
+			"SetTrigger",
+			"Collider2D",
+			"NameToLayer",
+			"Rigidbody2D",
+			"Is",
+			"SetBool",
+			"body",
+			"collider",
+			"animator",
+			"Walk",
+			"PlayerWalkState",
+			"x",
 			"gameObject",
 			"Move",
 			"PlayerMoveState",
@@ -1029,21 +1043,7 @@
 			"up",
 			"isChangingLevel",
 			"RogueLike",
-			"sc",
-			"SecondCollector",
-			"...",
-			"mogic_",
-			"mogic_count",
-			",",
-			"haarCascade",
-			"43 43",
-			"86 86",
-			"100 100",
-			"pic1",
-			"100 100",
-			" 22",
-			"18",
-			"pic1/"
+			"sc"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1142,7 +1142,7 @@
 						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1173,7 +1173,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1202,7 +1202,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1259,10 +1259,10 @@
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 864.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1271,15 +1271,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1217,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								48,
-								48
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1291,7 +1291,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1320,7 +1320,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1351,7 +1351,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1360,15 +1360,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1431,
+						"buffer_size": 1642,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								702,
-								702
+								1639,
+								1639
 							]
 						],
 						"settings":
@@ -1379,10 +1379,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1411,10 +1411,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1423,15 +1423,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1954,
+						"buffer_size": 5038,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1364,
-								1364
+								4948,
+								4948
 							]
 						],
 						"settings":
@@ -1447,7 +1447,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 702.0,
+						"translation.y": 2085.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1459,15 +1459,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 414,
+						"buffer_size": 637,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19,
-								19
+								195,
+								195
 							]
 						],
 						"settings":
@@ -1478,7 +1478,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

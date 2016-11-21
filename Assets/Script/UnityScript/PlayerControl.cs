@@ -36,14 +36,13 @@ public class PlayerControl : MonoBehaviour {
     }
     
     void DoMove() {
-        // if (Math.Abs(body.velocity.x) <= maxSpeed) {
-        //     if (GameKernel.inputManager.GetKey(InputKey.Left)) {
-        //         body.AddForce(new Vector2(-moveImpulse, 0.0f), ForceMode2D.Impulse);
-        //     }
-        //     if (GameKernel.inputManager.GetKey(InputKey.Right)) {
-        //         body.AddForce(new Vector2(moveImpulse, 0.0f), ForceMode2D.Impulse);
-        //     }
-        // }
+        Vector3 scale = stateMachine.gameObject.transform.localScale;
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            transform.localScale = new Vector3(-Math.Abs(scale.x), scale.y, scale.z);
+        }
+        if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
+        }
     }
 
     void DoAction() {
