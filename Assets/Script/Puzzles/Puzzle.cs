@@ -31,6 +31,9 @@ public class Puzzle : MonoBehaviour {
     }
 	
     public virtual void Update () {
+        if (puzzles.Count == 0) {
+            return;
+        }
         if (isPermanentChange && isTriggered) {
             return;
         }
