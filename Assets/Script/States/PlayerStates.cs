@@ -65,7 +65,6 @@ public class PlayerWalkState : State {
             stateMachine.ChangeState("Jump");
             return;
         }
-        Vector2 velocity = stateMachine.gameObject.GetComponent<Rigidbody2D>().velocity;
         // Idle
         if (!GameKernel.inputManager.GetKey(InputKey.Left) && 
             !GameKernel.inputManager.GetKey(InputKey.Right)) {

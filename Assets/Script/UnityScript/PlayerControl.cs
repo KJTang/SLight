@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using System;
 using System.Collections;
 
@@ -14,6 +15,8 @@ public class PlayerControl : MonoBehaviour {
 	void Start () {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
         collider = (Collider2D)gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(body);
+        Assert.IsNotNull(collider);
 
         stateMachine = new StateMachine();
         stateMachine.gameObject = gameObject;
