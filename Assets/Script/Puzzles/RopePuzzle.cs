@@ -68,22 +68,16 @@ public class RopePuzzle : Puzzle {
             }
         } else {
             if (GameKernel.inputManager.GetKeyDown(InputKey.Jump)) {
-                Destroy(grabJoint);
-                isGrabbing = false;
-
-                GameKernel.actionManager.RunAction(new ActionSequence(gameObject, 
-                    new ActionDelay(gameObject, reGrabDelay), 
-                    new ActionCallFunc(gameObject, (object obj) => {
-                        GameObject go = (GameObject)obj;
-                        go.SetActive(true);
-                        }, grabTrigger)
-                    )
-                );
+                PlayerGetDown();
             }
         }
     }
 
     void OnTriggerDown() {
+        PlayerGetUp();
+    }
+
+    void PlayerGetUp() {
         GameObject player = GameObject.Find("Player");
         Assert.IsNotNull(player);
         GameObject grabSeg = rope[grabPos];
@@ -93,5 +87,23 @@ public class RopePuzzle : Puzzle {
         isGrabbing = true;
 
         grabTrigger.SetActive(false);
+    }
+
+    public void PlayerGetDown(bool canReGetUp = true) {
+        Destroy(grabJoint);
+        isGrabbing = false;
+
+        if (canReGetUp) {
+            GameKernel.actionManager.RunAction(new ActionSequence(gameObject, 
+                new ActionDelay(gameObject, reGrabDelay), 
+                new ActionCallFunc(gameObject, (object obj) => {
+                    GameObject go = (GameObject)obj;
+                    go.SetActive(true);
+                    }, grabTrigger)
+                )
+            );
+        } else {
+            grabTrigger.SetActive(false);
+        }
     }
 }
