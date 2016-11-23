@@ -40,6 +40,7 @@ public class PlayerIdleState : State {
 
 public class PlayerWalkState : State {
     Animator animator;
+    Collider2D collider;
     Rigidbody2D body;
     PlayerControl script;
 
@@ -49,9 +50,10 @@ public class PlayerWalkState : State {
 
     public override void OnEnter() {
         // Debug.Log("Walk OnEnter");
-
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
+        collider = stateMachine.gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider);
         body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
         Assert.IsNotNull(body);
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
@@ -102,7 +104,6 @@ public class PlayerJumpState : State {
 
     public override void OnEnter() {
         // Debug.Log("Jump OnEnter");
-
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -112,7 +113,12 @@ public class PlayerJumpState : State {
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
         Assert.IsNotNull(script);
         animator.SetBool("IsJumping", true);
-        if (Math.Abs(body.velocity.y) <= script.maxSpeed.y) {
+        if (body.velocity.y <= 0.0f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
+            // if falling, jump in air
+            body.velocity = new Vector2(body.velocity.x, 0.0f);
+            body.AddForce(new Vector2(0.0f, script.jumpInAirImpulse), ForceMode2D.Impulse);
+        } else if (body.velocity.y <= script.maxSpeed.y) {
+            // normal jump
             body.AddForce(new Vector2(0.0f, script.jumpImpulse), ForceMode2D.Impulse);
         }
     }
