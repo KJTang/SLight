@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using System;
 using System.Collections;
 
@@ -10,10 +11,15 @@ public class PlayerControl : MonoBehaviour {
     public Vector2 maxSpeed = new Vector2(3.0f, 3.0f);
     public float moveImpulse = 0.2f;
     public float jumpImpulse = 5.0f;
+    public float jumpInAirImpulse = 8.0f;
+
+    public bool enableMove = true;
 
 	void Start () {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
         collider = (Collider2D)gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(body);
+        Assert.IsNotNull(collider);
 
         stateMachine = new StateMachine();
         stateMachine.gameObject = gameObject;
@@ -25,10 +31,15 @@ public class PlayerControl : MonoBehaviour {
     }
 	
 	void Update () {
+        // Debug.Log(body.velocity.y);
         DoMove();
         DoAction();
 
-        stateMachine.Update();
+        if (enableMove) {
+            stateMachine.Update();
+        } else {
+            stateMachine.ChangeState("Idle");
+        }
 	}
 
     void OnDestroy() {
@@ -36,12 +47,14 @@ public class PlayerControl : MonoBehaviour {
     }
     
     void DoMove() {
-        Vector3 scale = stateMachine.gameObject.transform.localScale;
-        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
-            transform.localScale = new Vector3(-Math.Abs(scale.x), scale.y, scale.z);
-        }
-        if (GameKernel.inputManager.GetKey(InputKey.Right)) {
-            transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
+        if (enableMove) {
+            Vector3 scale = stateMachine.gameObject.transform.localScale;
+            if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+                transform.localScale = new Vector3(-Math.Abs(scale.x), scale.y, scale.z);
+            }
+            if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+                transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
+            }
         }
     }
 

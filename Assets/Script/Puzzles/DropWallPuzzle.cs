@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.Assertions;
-using System;
 
 public class DropWallPuzzle : MonoBehaviour {
     // Use this for initialization
