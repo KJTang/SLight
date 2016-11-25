@@ -6,7 +6,6 @@ public class CameraControl : MonoBehaviour {
     public GameObject target;
 
 	void Start () {
-        transform.position = new Vector3(target.transform.position.x,transform.position.y, transform.position.z);
     }
 	
 	void Update () {
