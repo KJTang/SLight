@@ -31,13 +31,13 @@ public class Puzzle : MonoBehaviour {
     }
 	
     public virtual void Update () {
+        isTriggeredLastTime = isTriggered;
         if (puzzles.Count == 0) {
             return;
         }
         if (isPermanentChange && isTriggered) {
             return;
         }
-        isTriggeredLastTime = isTriggered;
         switch (triggerType) {
             case TriggerType.AND: {
                 isTriggered = DetermineAnd();
@@ -138,5 +138,10 @@ public class Puzzle : MonoBehaviour {
 
     public bool GetTrigger() {
         return isTriggered;
+    }
+
+    public void AddPuzzle(Puzzle p, PuzzleType t) {
+        puzzles.Add(p);
+        puzzleTypes.Add(t);
     }
 }
