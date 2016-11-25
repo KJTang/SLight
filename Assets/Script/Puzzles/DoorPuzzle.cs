@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Assertions;
-using System.Collections;
 
 public class DoorPuzzle : Puzzle {
     Transform sprite;

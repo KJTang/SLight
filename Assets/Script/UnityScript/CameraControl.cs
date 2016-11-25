@@ -5,7 +5,9 @@ using System.Collections;
 public class CameraControl : MonoBehaviour {
     public GameObject target;
 
-	void Start () {}
+	void Start () {
+        transform.position = new Vector3(target.transform.position.x,transform.position.y, transform.position.z);
+    }
 	
 	void Update () {
         if (target) {
@@ -13,7 +15,7 @@ public class CameraControl : MonoBehaviour {
                 Math.Abs(transform.position.y - target.transform.position.y) >= 0.01f) {
                 GameKernel.actionManager.RunAction(new ActionMoveTo(
                     gameObject, 
-                    new Vector3(target.transform.position.x, target.transform.position.y, -10.0f), 
+                    new Vector3(target.transform.position.x,transform.position.y, -10.0f), 
                     1.0f));
             }
         }

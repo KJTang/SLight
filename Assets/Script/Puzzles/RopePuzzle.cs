@@ -36,7 +36,8 @@ public class RopePuzzle : Puzzle {
             seg.transform.parent = transform;
             seg.transform.localPosition = new Vector3(0.0f, -offset * (i + 1), 0.0f);
             Rigidbody2D body = seg.AddComponent<Rigidbody2D>();
-            // BoxCollider2D collider = seg.AddComponent<BoxCollider2D>();
+            BoxCollider2D collider = seg.AddComponent<BoxCollider2D>();
+            collider.size = segSize;
             // HingeJoint2D joint = seg.AddComponent<HingeJoint2D>();
             // FixedJoint2D joint = seg.AddComponent<FixedJoint2D>();
             DistanceJoint2D joint = seg.AddComponent<DistanceJoint2D>();
@@ -45,14 +46,18 @@ public class RopePuzzle : Puzzle {
             body.mass = segMass;
             // collider.size = segSize;
             joint.connectedBody = rope[i].GetComponent<Rigidbody2D>();
+            seg.layer = LayerMask.NameToLayer("rope");
             // Segment Sprite
             GameObject segSprite = new GameObject();
             segSprite.transform.parent = seg.transform;
             segSprite.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
             SpriteRenderer renderer = segSprite.AddComponent<SpriteRenderer>();
+
+            //Rigidbody2D rid2d = segSprite.AddComponent<Rigidbody2D>();
+            //BoxCollider2D b2d = segSprite.AddComponent<BoxCollider2D>();
+            segSprite.GetComponent<SpriteRenderer>().sortingLayerName = "Ground";
             renderer.sprite = sprite;
             renderer.transform.localScale = spriteScale;
-
             rope.Add(seg);
         }
 

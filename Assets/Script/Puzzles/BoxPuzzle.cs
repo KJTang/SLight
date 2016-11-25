@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
-using System.Collections;
 using System;
 
 public class BoxPuzzle : Puzzle
