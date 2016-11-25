@@ -46,4 +46,8 @@ public class LevelManager : IGameManager {
             curLevel.OnEnter();
         }
     }
+
+    public Level CreateCommonLevel(string name) {
+        return new CommonLevel(name);
+    }
 }
