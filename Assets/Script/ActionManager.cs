@@ -29,4 +29,8 @@ public class ActionManager : IGameManager {
         actionList.Add(go, ac);
         ac.Init();
     }
+
+    public void ClearAll() {
+        actionList.Clear();
+    }
 }
