@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.Assertions;
-
+using System.Collections.Generic;
 public class LevelState : Puzzle {
     public int cheapter;
     public int level;
-    public int levels_in_cheapter = 5;
+    public int levels_in_cheapter = 5;  
     public int num_of_cheapter = 5;
+
+    public List<float> savepoints = new List<float>();
+    static private int current_savepoints = 0;
 
     public Transform player;
 	
     // Use this for initialization
 	void Start () {
-	}
+        Assert.IsNotNull(player);
+        if(savepoints.Count>0)
+            player.position =new Vector3( savepoints[current_savepoints],player.position.y, player.position.z);
+    }
 	// Update is called once per frame
 	public override void Update () {
         //judge
@@ -38,6 +43,16 @@ public class LevelState : Puzzle {
             else if (puzzles[1].isTriggered)
             {
                 GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel("Level" + (char)c + level.ToString()), true);
+            }
+        }
+
+        //refresh the current_savepoint
+        if (current_savepoints+1 <= savepoints.Count - 1)
+        {
+            if (player.position.x > savepoints[current_savepoints+1])
+            {
+                current_savepoints++;
+                //Debug.Log(current_savepoints);
             }
         }
     }

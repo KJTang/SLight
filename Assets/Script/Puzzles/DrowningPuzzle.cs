@@ -11,17 +11,17 @@ public class DrowningPuzzle : Puzzle {
         Assert.IsNotNull(player);
 	}
 
-    void OnCollisionEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "player")//另一物体是player
+        if (other.gameObject.tag == "player")//另一物体是player
         {
             count = 0;
         }
     }
 
-    void OnCollisionStay(Collider other)
+    void OnCollisionStay(Collision other)
     {
-        if (other.tag == "player")//另一物体是player
+        if (other.gameObject.tag == "player")//另一物体是player
         {
             //set state
             count += Time.deltaTime;

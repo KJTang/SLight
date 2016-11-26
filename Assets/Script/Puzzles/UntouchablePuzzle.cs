@@ -9,9 +9,9 @@ public class UntouchablePuzzle : Puzzle {
         Assert.IsNotNull(player);
 	}
 	// Update is called once per frame
-    void OnCollisionEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "player")//另一物体是player
+        if (other.gameObject.tag == "player")//另一物体是player
         {
             //set state
             isTriggered = true;

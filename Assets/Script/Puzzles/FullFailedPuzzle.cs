@@ -2,19 +2,15 @@
 using System.Collections;
 using UnityEngine.Assertions;
 public class FullFailedPuzzle : Puzzle {
-    public Transform player;
+    //public Transform player;
     // Use this for initialization
     void Start()
     {
-        Assert.IsNotNull(player);
+     //   Assert.IsNotNull(player);
     }
     // Update is called once per frame
-    void OnCollisionEnter(Collider other)
+    public override void Update()
     {
-        if (other.tag == "player")//另一物体是player
-        {
-            //set state
-            isTriggered = true;
-        }
+        base.Update();
     }
 }

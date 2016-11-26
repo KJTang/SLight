@@ -37,7 +37,8 @@ public class CommonLevel : Level {
         // Debug.Log("CommonLevel: Update");
     }
 
-    public override void OnExit() {
+    public override void OnExit() { 
         GameKernel.inputManager.Enable = false;
+        GameKernel.actionManager.ClearAll();
     }
 }

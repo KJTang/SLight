@@ -19,6 +19,7 @@ public class DropWallPuzzle : MonoBehaviour {
                     GameObject go = (GameObject)obj;
                     Debug.Log("V");
                     go.GetComponent<Rigidbody2D>().isKinematic = false;
+                    gameObject.GetComponentInChildren<RopePuzzle>().PlayerGetDown(false);
                 }, gameObject)
                 )
             );
