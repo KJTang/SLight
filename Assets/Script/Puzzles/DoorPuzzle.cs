@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class DoorPuzzle : Puzzle {
-    Transform sprite;
-
+    //Transform sprite;
+    private Vector3 Init_position;
+    public Vector3 Moved_position;
     void Start() {
-        sprite = transform.Find("Sprite");
-        Assert.IsNotNull(sprite);
+        //sprite = transform.Find("Sprite");
+        //Assert.IsNotNull(sprite);
+        Init_position = transform.position;
     }
     
     public override void Update() {
@@ -19,10 +21,10 @@ public class DoorPuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, new Vector3(3.0f, 2.0f, 0.0f), 15.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, 15.0f));
     }
 
     void OnTriggerUp() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, new Vector3(3.0f, -2.75f, 0.0f), 2.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Moved_position, 2.0f));
     }
 }
