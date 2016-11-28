@@ -13,7 +13,7 @@ public class MirrorPuzzle : LightDetectorPuzzle {
     
     public override void Update() {
         base.Update();
-        if (GetTrigger()) {
+        if (GetTriggerDown()) {
             // create reflect
             isLightShootingOn = true;
         }

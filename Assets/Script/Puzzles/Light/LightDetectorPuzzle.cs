@@ -18,7 +18,7 @@ public class LightDetectorPuzzle : Puzzle {
     }
     
     public override void Update() {
-        // base.Update();
+        base.Update();
         isTriggered = (lights.Count != 0);
     }
 
