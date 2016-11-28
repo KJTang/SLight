@@ -12,7 +12,7 @@ public class PlayerIdleState : State {
     }
 
     public override void OnEnter() {
-        // Debug.Log("Idle OnEnter");
+        Debug.Log("Idle OnEnter");
 
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
@@ -33,7 +33,7 @@ public class PlayerIdleState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Idle OnExit");
+        Debug.Log("Idle OnExit");
         animator.SetBool("IsIdling", false);
     }
 }
@@ -49,7 +49,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnEnter() {
-        // Debug.Log("Walk OnEnter");
+        Debug.Log("Walk OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -87,7 +87,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Walk OnExit");
+        Debug.Log("Walk OnExit");
         animator.SetBool("IsWalking", false);
     }
 }
@@ -98,12 +98,23 @@ public class PlayerJumpState : State {
     Rigidbody2D body;
     PlayerControl script;
 
+    /**
+     *  when switch to PlayerJumpState, 
+     *  this state will give Player an impulse to make Player jump,
+     *  but the first time give the impulse, 
+     *  Player still standing on the Ground, 
+     *  cause impulse doesn't take effect that fast, 
+     *  so we give a 'isJumpTakingEffect' flag, 
+     *  to mark that whether Player really start jumping or not
+     */
+    static bool isJumpTakingEffect = false;
+
     public PlayerJumpState() {
         name = "Jump";
     }
 
     public override void OnEnter() {
-        // Debug.Log("Jump OnEnter");
+        Debug.Log("Jump OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -113,17 +124,26 @@ public class PlayerJumpState : State {
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
         Assert.IsNotNull(script);
         animator.SetBool("IsJumping", true);
-        if (body.velocity.y <= 0.0f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
-            // if falling, jump in air
-            body.velocity = new Vector2(body.velocity.x, 0.0f);
-            body.AddForce(new Vector2(0.0f, script.jumpInAirImpulse), ForceMode2D.Impulse);
-        } else if (body.velocity.y <= script.maxSpeed.y) {
-            // normal jump
-            body.AddForce(new Vector2(0.0f, script.jumpImpulse), ForceMode2D.Impulse);
+        if (!isJumpTakingEffect) {
+            if (body.velocity.y <= 0.0f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
+                // if falling, jump in air
+                body.velocity = new Vector2(body.velocity.x, 0.0f);
+                body.AddForce(new Vector2(0.0f, script.jumpInAirImpulse), ForceMode2D.Impulse);
+            } else if (body.velocity.y <= script.maxSpeed.y) {
+                // normal jump
+                body.AddForce(new Vector2(0.0f, script.jumpImpulse), ForceMode2D.Impulse);
+            }
+            isJumpTakingEffect = true;
         }
     }
 
     public override void Update() {
+        if (isJumpTakingEffect) {
+            if (!collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+                isJumpTakingEffect = false;
+            }
+            return;
+        }
         // Idle or Walk
         if (collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             if (Math.Abs(body.velocity.x) <= 0.0f) {
@@ -147,7 +167,7 @@ public class PlayerJumpState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Jump OnExit");
+        Debug.Log("Jump OnExit");
         animator.SetBool("IsJumping", false);
     }
 }
