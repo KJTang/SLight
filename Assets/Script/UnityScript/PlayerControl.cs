@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour {
 
     public bool enableMove = true;
 
-	void Start () {
+	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
         collider = (Collider2D)gameObject.GetComponent<Collider2D>();
         Assert.IsNotNull(body);
@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour {
         stateMachine.ChangeState("Idle");
     }
 	
-	void Update () {
+	void Update() {
         // Debug.Log(body.velocity.y);
         DoMove();
         DoAction();

@@ -12,7 +12,7 @@ public class PlayerIdleState : State {
     }
 
     public override void OnEnter() {
-        Debug.Log("Idle OnEnter");
+        // Debug.Log("Idle OnEnter");
 
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
@@ -33,7 +33,7 @@ public class PlayerIdleState : State {
     }
 
     public override void OnExit() {
-        Debug.Log("Idle OnExit");
+        // Debug.Log("Idle OnExit");
         animator.SetBool("IsIdling", false);
     }
 }
@@ -49,7 +49,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnEnter() {
-        Debug.Log("Walk OnEnter");
+        // Debug.Log("Walk OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -87,7 +87,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnExit() {
-        Debug.Log("Walk OnExit");
+        // Debug.Log("Walk OnExit");
         animator.SetBool("IsWalking", false);
     }
 }
@@ -114,7 +114,7 @@ public class PlayerJumpState : State {
     }
 
     public override void OnEnter() {
-        Debug.Log("Jump OnEnter");
+        // Debug.Log("Jump OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -167,7 +167,7 @@ public class PlayerJumpState : State {
     }
 
     public override void OnExit() {
-        Debug.Log("Jump OnExit");
+        // Debug.Log("Jump OnExit");
         animator.SetBool("IsJumping", false);
     }
 }
