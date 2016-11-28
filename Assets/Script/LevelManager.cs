@@ -48,6 +48,7 @@ public class LevelManager : IGameManager {
     }
 
     public Level CreateCommonLevel(string name) {
+        Debug.Log(name);
         return new CommonLevel(name);
     }
 }
