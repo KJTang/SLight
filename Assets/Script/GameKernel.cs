@@ -14,8 +14,8 @@ public class GameKernel : MonoBehaviour {
     public static InputManager inputManager = new InputManager();
     public static ActionManager actionManager = new ActionManager();
     public static EventManager eventManager = new EventManager();
+    public static ResourceManager resourceManager = new ResourceManager();
     // public static ActorManager actorManager = new ActorManager();
-    // public static ResourceManager resourceManager = new ResourceManager();
     // public static FileManager fileManager = new FileManager();
 
     List<IGameManager> gameManagers = new List<IGameManager>();
@@ -28,8 +28,8 @@ public class GameKernel : MonoBehaviour {
         gameManagers.Add(inputManager);
         gameManagers.Add(actionManager);
         gameManagers.Add(eventManager);
+        gameManagers.Add(resourceManager);
         // gameManagers.Add(actorManager);
-        // gameManagers.Add(resourceManager);
         // gameManagers.Add(fileManager);
 
         for (int i = 0; i != gameManagers.Count; ++i) {
