@@ -25,6 +25,7 @@ public class EnergSupplyPuzzle : Puzzle {
         else
         {
             isTriggered = true;
+            isPermanentChange = true;
         }
 	}
 }

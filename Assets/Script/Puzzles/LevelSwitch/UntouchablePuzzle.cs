@@ -11,7 +11,7 @@ public class UntouchablePuzzle : Puzzle {
 	// Update is called once per frame
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "player")//另一物体是player
+        if (other.gameObject.tag == "Player")//另一物体是player
         {
             //set state
             isTriggered = true;

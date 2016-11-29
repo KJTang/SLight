@@ -11,19 +11,22 @@ public class DrowningPuzzle : Puzzle {
         Assert.IsNotNull(player);
 	}
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "player")//另一物体是player
+        Debug.Log(count + "start");
+        if (other.tag == "Player")//另一物体是player
         {
             count = 0;
+            Debug.Log(count+"start");
         }
     }
 
-    void OnCollisionStay(Collision other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "player")//另一物体是player
+        if (other.tag == "Player")//另一物体是player
         {
             //set state
+            Debug.Log(count + "counting");
             count += Time.deltaTime;
             if (count >= Timelimit) isTriggered = true;
         }

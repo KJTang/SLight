@@ -3,11 +3,15 @@ using UnityEngine.Assertions;
 using System.Collections;
 
 public class ButtonPuzzle : Puzzle {
-//    Transform sprite;
-
+    Transform sprite;
+    private Vector3 Init_position;
+    public Vector3 Moved_position;
     void Start() {
- //       sprite = transform.Find("Sprite");
-//        Assert.IsNotNull(sprite);
+        Init_position = transform.position;
+        //sprite = transform.Find("Sprite");
+        sprite = transform.GetChild(0);
+        Debug.Log(sprite);
+        Assert.IsNotNull(sprite);
     }
     
     public override void Update() {
@@ -20,10 +24,10 @@ public class ButtonPuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, new Vector3(-5.0f, -5.0f, 0.0f), 0.1f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Moved_position, 0.1f));
     }
 
     void OnTriggerUp() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, new Vector3(-5.0f, -4.0f, 0.0f), 0.1f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Init_position, 0.1f));
     }
 }
