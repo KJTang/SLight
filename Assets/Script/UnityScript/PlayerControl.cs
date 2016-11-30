@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
     public float moveImpulse = 0.2f;
     public float jumpImpulse = 5.0f;
     public float jumpInAirImpulse = 8.0f;
+    public LayerMask groundMask;
 
     public bool enableMove = true;
 

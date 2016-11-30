@@ -139,13 +139,13 @@ public class PlayerJumpState : State {
 
     public override void Update() {
         if (isJumpTakingEffect) {
-            if (!collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+            if (!collider.IsTouchingLayers(script.groundMask.value)) {
                 isJumpTakingEffect = false;
             }
             return;
         }
         // Idle or Walk
-        if (collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+        if (collider.IsTouchingLayers(script.groundMask.value)) {
             if (Math.Abs(body.velocity.x) <= 0.0f) {
                 stateMachine.ChangeState("Idle");
             } else {
