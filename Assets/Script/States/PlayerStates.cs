@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class PlayerIdleState : State {
     Animator animator;
+    AudioSource audio;
 
     public PlayerIdleState() {
         name = "Idle";
@@ -15,8 +16,15 @@ public class PlayerIdleState : State {
         // Debug.Log("Idle OnEnter");
 
         animator = stateMachine.gameObject.GetComponent<Animator>();
+        audio = stateMachine.gameObject.GetComponent<AudioSource>();
         Assert.IsNotNull(animator);
+        Assert.IsNotNull(audio);
+
         animator.SetBool("IsIdling", true);
+
+        AudioClip clip = Resources.Load("SoundEffect/脚步/脚步-硬地") as AudioClip;
+        Assert.IsNotNull(clip);
+        audio.PlayOneShot(clip);
     }
 
     public override void Update() {
@@ -42,7 +50,11 @@ public class PlayerWalkState : State {
     Animator animator;
     Collider2D collider;
     Rigidbody2D body;
+    AudioSource audio;
     PlayerControl script;
+
+    float soundDelta = 0.4f;
+    float deltaTime = 0.0f;
 
     public PlayerWalkState() {
         name = "Walk";
@@ -51,12 +63,14 @@ public class PlayerWalkState : State {
     public override void OnEnter() {
         // Debug.Log("Walk OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
-        Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
-        Assert.IsNotNull(collider);
         body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
-        Assert.IsNotNull(body);
+        audio = stateMachine.gameObject.GetComponent<AudioSource>();
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(animator);
+        Assert.IsNotNull(collider);
+        Assert.IsNotNull(body);
+        Assert.IsNotNull(audio);
         Assert.IsNotNull(script);
         animator.SetBool("IsWalking", true);
     }
@@ -83,6 +97,14 @@ public class PlayerWalkState : State {
             if (body.velocity.x <= script.maxSpeed.x) {
                 body.AddForce(new Vector2(script.moveImpulse, 0.0f), ForceMode2D.Impulse);
             }
+        }
+        // sound effect
+        deltaTime += Time.deltaTime;
+        if (deltaTime >= soundDelta) {
+            AudioClip clip = Resources.Load("SoundEffect/脚步/脚步-硬地") as AudioClip;
+            Assert.IsNotNull(clip);
+            audio.PlayOneShot(clip);
+            deltaTime = 0.0f;
         }
     }
 

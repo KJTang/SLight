@@ -6,6 +6,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
     private Rigidbody2D body;
     private Collider2D collider;
+    private AudioSource audioSource;
     private StateMachine stateMachine;
 
     public Vector2 maxSpeed = new Vector2(3.0f, 3.0f);
@@ -19,8 +20,10 @@ public class PlayerControl : MonoBehaviour {
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
         collider = (Collider2D)gameObject.GetComponent<Collider2D>();
+        audioSource = (AudioSource)gameObject.GetComponent<AudioSource>();
         Assert.IsNotNull(body);
         Assert.IsNotNull(collider);
+        Assert.IsNotNull(audioSource);
 
         stateMachine = new StateMachine();
         stateMachine.gameObject = gameObject;
