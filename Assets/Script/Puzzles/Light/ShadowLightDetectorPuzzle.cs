@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShadowLightDetectorPuzzle : LightDetectorPuzzle {
+    public Vector3 shadowOffset = new Vector3(0.0f, 0.0f, 0.0f);
+
     private GameObject shadowPrefab;
     private GameObject shadowObject;
 
@@ -35,23 +37,23 @@ public class ShadowLightDetectorPuzzle : LightDetectorPuzzle {
     }
 
     void CreateShadow() {
-        Debug.Log("CreateShadow");
+        // Debug.Log("CreateShadow");
         Assert.IsTrue(lights.Count == 1);
         shadowObject = Object.Instantiate(shadowPrefab) as GameObject;
     }
 
     void UpdateShadow() {
-        Debug.Log("UpdateShadow");
+        // Debug.Log("UpdateShadow");
         LightInfo info;
         foreach (KeyValuePair<GameObject, LightInfo> kvp in lights) {
             info = kvp.Value;
-            shadowObject.transform.position = new Vector3(info.hitPoint.x, info.hitPoint.y, transform.position.z);
+            shadowObject.transform.position = new Vector3(info.hitPoint.x, info.hitPoint.y, transform.position.z) + shadowOffset;
             break;
         }
     }
 
     void RemoveShadow() {
-        Debug.Log("RemoveShadow");
+        // Debug.Log("RemoveShadow");
         Destroy(shadowObject);
         shadowObject = null;
     }

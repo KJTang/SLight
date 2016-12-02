@@ -67,4 +67,8 @@ public class PlayerControl : MonoBehaviour {
         //     body.AddForce(new Vector2(0.0f, jumpImpulse), ForceMode2D.Impulse);
         // }
     }
+
+    public string CurrentState() {
+        return stateMachine.curState.name;
+    }
 }
