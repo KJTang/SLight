@@ -35,11 +35,7 @@ public class PlayerShadowControl : MonoBehaviour {
         string playerState = playerScript.CurrentState();
         if (curState != playerState) {
             if (playerState == "Jump") {
-                if (Math.Abs(playerBody.velocity.x) >= 0.0f) {
-                    stateMachine.ChangeState("Walk");
-                } else {
-                    stateMachine.ChangeState("Idle");
-                }
+                stateMachine.ChangeState("Walk");
             } else {
                 stateMachine.ChangeState(playerState);
             }

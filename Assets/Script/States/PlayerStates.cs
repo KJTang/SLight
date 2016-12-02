@@ -147,7 +147,7 @@ public class PlayerJumpState : State {
         Assert.IsNotNull(script);
         animator.SetBool("IsJumping", true);
         if (!isJumpTakingEffect) {
-            if (body.velocity.y <= 0.0f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
+            if (body.velocity.y <= -0.01f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
                 // if falling, jump in air
                 body.velocity = new Vector2(body.velocity.x, 0.0f);
                 body.AddForce(new Vector2(0.0f, script.jumpInAirImpulse), ForceMode2D.Impulse);
