@@ -9,7 +9,7 @@ public class WatProducerPuzzle : Puzzle {
 
     public List<float> pos;
     public List<float> time;
-    static int count = 0;
+    private int count = 0;
     void Start()
     {
         Init_position = transform.position;
@@ -45,6 +45,7 @@ public class WatProducerPuzzle : Puzzle {
                 if (count < pos.Count)
                 {
                     count++;
+                    Debug.Log("count:"+count);
                     OnTriggerDown(pos[count - 1], time[count - 1]);
                 }
             })
@@ -54,6 +55,7 @@ public class WatProducerPuzzle : Puzzle {
 
     void OnTriggerUp()
     {
+        Debug.Log("watpuzzle:triggerUp");
         GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Init_position, 0.1f));
     }
 }

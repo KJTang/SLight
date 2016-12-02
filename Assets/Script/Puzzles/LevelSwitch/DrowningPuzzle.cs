@@ -13,11 +13,11 @@ public class DrowningPuzzle : Puzzle {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(count + "start");
+        //Debug.Log(count + "start");
         if (other.tag == "Player")//另一物体是player
         {
             count = 0;
-            Debug.Log(count+"start");
+            //Debug.Log(count+"start");
         }
     }
 
@@ -26,7 +26,7 @@ public class DrowningPuzzle : Puzzle {
         if (other.tag == "Player")//另一物体是player
         {
             //set state
-            Debug.Log(count + "counting");
+            //Debug.Log(count + "counting");
             count += Time.deltaTime;
             if (count >= Timelimit) isTriggered = true;
         }
