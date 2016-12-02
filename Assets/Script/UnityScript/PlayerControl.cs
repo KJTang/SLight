@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
     private Rigidbody2D body;
-    private Collider2D collider;
+    private Collider2D collider2d;
     private AudioSource audioSource;
     private StateMachine stateMachine;
 
@@ -19,10 +19,10 @@ public class PlayerControl : MonoBehaviour {
 
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
-        collider = (Collider2D)gameObject.GetComponent<Collider2D>();
+        collider2d = (Collider2D)gameObject.GetComponent<Collider2D>();
         audioSource = (AudioSource)gameObject.GetComponent<AudioSource>();
         Assert.IsNotNull(body);
-        Assert.IsNotNull(collider);
+        Assert.IsNotNull(collider2d);
         Assert.IsNotNull(audioSource);
 
         stateMachine = new StateMachine();

@@ -21,8 +21,6 @@ public class Level {
 }
 
 public class CommonLevel : Level {
-    public string name;
-
     public CommonLevel(string str) {
         Debug.Log(str);
         name = str;

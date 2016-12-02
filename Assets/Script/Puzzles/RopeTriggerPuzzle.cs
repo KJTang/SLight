@@ -3,15 +3,15 @@ using UnityEngine.Assertions;
 using System.Collections;
 
 public class RopeTriggerPuzzle : Puzzle {
-    Collider2D collider;
+    Collider2D collider2d;
 
 	void Start() {
         isTriggered = false;
-        collider = gameObject.GetComponent<Collider2D>();
-        Assert.IsNotNull(collider);
+        collider2d = gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider2d);
     }
 	
-	void Update() {
+	public override void Update() {
         // will not use default trigger way
         // base.Update();
 	}
