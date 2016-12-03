@@ -111,7 +111,10 @@ public class InputManager : IGameManager {
             if (currentTouch.phase == TouchPhase.Moved) {
                 OnTouchMoved(currentTouch);
             }
-            if (currentTouch.phase == TouchPhase.Ended) {
+            if (currentTouch.phase == TouchPhase.Stationary) {
+                OnTouchStationary(currentTouch);
+            }
+            if (currentTouch.phase == TouchPhase.Ended || currentTouch.phase == TouchPhase.Canceled) {
                 OnTouchEnded(currentTouch);
             }
         }
@@ -207,7 +210,7 @@ public class InputManager : IGameManager {
             float vertical = currentTouch.position.y - rightFingerPos.y;
             switch (rightFingerState) {
                 case InputKey.None: {
-                    // Jump
+                    // Jump Button
                     if (vertical >= rightFingerOffset) {
                         rightFingerState = InputKey.Jump;
                         KeyInfo info = inputDict[rightFingerState];
@@ -215,22 +218,6 @@ public class InputManager : IGameManager {
                         info.keyDown = true;
                         info.keyStatus = true;
                         inputDict[rightFingerState] = info;
-                        break;
-                    }
-                    // Action
-                    if (Math.Abs(horizon) < rightFingerOffset && Math.Abs(vertical) < rightFingerOffset) {
-                        ++rightFingerCount;
-                    } else {
-                        rightFingerCount = 0;
-                    }
-                    if (rightFingerCount >= rightFingerMaxCount) {
-                        rightFingerState = InputKey.Action;
-                        KeyInfo info = inputDict[rightFingerState];
-                        info.keyUp = false;
-                        info.keyDown = true;
-                        info.keyStatus = true;
-                        inputDict[rightFingerState] = info;
-                        rightFingerCount = 0;
                         break;
                     }
                     break;
@@ -256,9 +243,32 @@ public class InputManager : IGameManager {
                         inputDict[rightFingerState] = info;
                         lastRightFingerState = rightFingerState;
                         rightFingerState = InputKey.None;
+                        rightFingerCount = 0;
                     }
                     break;
                 }
+            }
+        }
+    }
+
+    void OnTouchStationary(Touch currentTouch) {
+        if (currentTouch.fingerId == rightFinger) {
+            // Action Button
+            ++rightFingerCount;
+            if (rightFingerCount == rightFingerMaxCount) {
+                rightFingerState = InputKey.Action;
+                KeyInfo info = inputDict[rightFingerState];
+                info.keyUp = false;
+                info.keyDown = true;
+                info.keyStatus = true;
+                inputDict[rightFingerState] = info;
+            } else if (rightFingerCount > rightFingerMaxCount) {
+                rightFingerState = InputKey.Action;
+                KeyInfo info = inputDict[rightFingerState];
+                info.keyUp = false;
+                info.keyDown = false;
+                info.keyStatus = true;
+                inputDict[rightFingerState] = info;
             }
         }
     }
@@ -278,6 +288,10 @@ public class InputManager : IGameManager {
         } else if (currentTouch.fingerId == rightFinger) {
             rightFinger = -1;
             if (rightFingerState != InputKey.None) {
+                if (rightFingerState == InputKey.Action) {
+                    rightFingerCount = 0;
+                }
+
                 KeyInfo info = inputDict[rightFingerState];
                 info.keyUp = true;
                 info.keyDown = false;
@@ -316,12 +330,12 @@ public class InputManager : IGameManager {
     #endif    
 
     void InputTest() {
-        Debug.Log("Left: " + (GetKeyUp(InputKey.Left) ? "true" : "false") + " " + 
-            "Right: " + (GetKeyUp(InputKey.Right) ? "true" : "false") + " " + 
-            "Up: " + (GetKeyUp(InputKey.Up) ? "true" : "false") + " " + 
-            "Down: " + (GetKeyUp(InputKey.Down) ? "true" : "false") + " " + 
-            "Jump: " + (GetKeyUp(InputKey.Jump) ? "true" : "false") + " " + 
-            "Action: " + (GetKeyUp(InputKey.Action) ? "true" : "false")
+        Debug.Log("Left: " + (GetKey(InputKey.Left) ? "true" : "false") + " " + 
+            "Right: " + (GetKey(InputKey.Right) ? "true" : "false") + " " + 
+            "Up: " + (GetKey(InputKey.Up) ? "true" : "false") + " " + 
+            "Down: " + (GetKey(InputKey.Down) ? "true" : "false") + " " + 
+            "Jump: " + (GetKey(InputKey.Jump) ? "true" : "false") + " " + 
+            "Action: " + (GetKey(InputKey.Action) ? "true" : "false")
         );
     }
 
