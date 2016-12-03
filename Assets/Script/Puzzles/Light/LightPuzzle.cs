@@ -44,8 +44,14 @@ public class LightPuzzle : Puzzle {
 
     protected void ShotLight() {
         if (hitBody != null && hitBody.gameObject.layer == LayerMask.NameToLayer("LightDetector")) {
-            hitScript = (hitBody.transform.parent.gameObject).GetComponent<LightDetectorPuzzle>();
-            Assert.IsNotNull(hitScript);
+            LightDetectorPuzzle newHitScript = (hitBody.transform.parent.gameObject).GetComponent<LightDetectorPuzzle>();
+            Assert.IsNotNull(newHitScript);
+            // remove last
+            if (hitScript != newHitScript) {
+                RemoveLightPointInDetector();
+            }
+            // create or update new
+            hitScript = newHitScript;
             LightInfo info = new LightInfo();
             info.name = gameObject.ToString();
             info.eulerAngles = transform.eulerAngles;

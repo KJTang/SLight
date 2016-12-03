@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"pla",
+				"playerState"
+			],
+			[
+				"sh",
+				"shadowOffset"
+			],
+			[
+				"Ins",
+				"Instantiate"
+			],
+			[
+				"pa",
+				"player"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"A",
+				"Assert"
+			],
+			[
+				"sou",
+				"soundDelta"
+			],
+			[
+				"De",
+				"deltaTime"
+			],
+			[
+				"de",
+				"deltaTime"
+			],
+			[
+				"Get",
+				"GetComponent"
+			],
+			[
 				"On",
 				"OnTouchEnded"
 			],
@@ -38,10 +78,6 @@
 			[
 				"inp",
 				"input"
-			],
-			[
-				"Get",
-				"GetKey"
 			],
 			[
 				"inpu",
@@ -108,10 +144,6 @@
 				"setByOutside"
 			],
 			[
-				"tr",
-				"true"
-			],
-			[
 				"s",
 				"setByOutsize"
 			],
@@ -134,10 +166,6 @@
 			[
 				"po",
 				"point2D"
-			],
-			[
-				"sh",
-				"shadowObject"
 			],
 			[
 				"Cl",
@@ -224,20 +252,8 @@
 				"Vector3"
 			],
 			[
-				"de",
-				"Debug"
-			],
-			[
 				"Rem",
 				"RemoveLightPoint"
-			],
-			[
-				"pa",
-				"parent"
-			],
-			[
-				"De",
-				"Destroy"
 			],
 			[
 				"if",
@@ -250,10 +266,6 @@
 			[
 				"ve",
 				"Vector3"
-			],
-			[
-				"pla",
-				"playerPos"
 			],
 			[
 				"pl",
@@ -496,24 +508,12 @@
 				"KeyCode"
 			],
 			[
-				"A",
-				"Add"
-			],
-			[
 				"INp",
 				"InputInfo"
 			],
 			[
 				"DI",
 				"Dictionary"
-			],
-			[
-				"Is",
-				"IsKeyPressing"
-			],
-			[
-				"u",
-				"Up"
 			]
 		]
 	},
@@ -538,10 +538,19 @@
 			}
 		},
 		{
-			"file": "/E/Work/Code/Unity/OpenCV/OpenCvTest/Assets/TestScript.cs",
+			"file": "Assets/Script/Levels/Level.cs",
 			"settings":
 			{
-				"buffer_size": 4382,
+				"buffer_size": 966,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
+			"settings":
+			{
+				"buffer_size": 756,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -603,7 +612,7 @@
 			"file": "Assets/Script/Puzzles/Light/ShadowLightPuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 890,
+				"buffer_size": 1025,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -612,16 +621,7 @@
 			"file": "Assets/Script/Puzzles/Light/ShadowLightDetectorPuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 1639,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Script/States/PlayerStates.cs",
-			"settings":
-			{
-				"buffer_size": 5694,
+				"buffer_size": 1729,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -630,9 +630,36 @@
 			"file": "Assets/Script/UnityScript/PlayerControl.cs",
 			"settings":
 			{
-				"buffer_size": 2024,
+				"buffer_size": 2266,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Script/UnityScript/PlayerShadowControl.cs",
+			"settings":
+			{
+				"buffer_size": 1817,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Script/States/PlayerStates.cs",
+			"settings":
+			{
+				"buffer_size": 6444,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Script/States/PlayerShadowStates.cs",
+			"settings":
+			{
+				"buffer_size": 1741,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -786,6 +813,7 @@
 	],
 	"file_history":
 	[
+		"/E/Work/Code/Unity/OpenCV/OpenCvTest/Assets/TestScript.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/PlayerControl.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/InputOnMobile.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Actions.meta",
@@ -912,8 +940,7 @@
 		"/C/Users/kaiji/Desktop/OpenCV/trainningdata/neg_image.txt",
 		"/C/Users/kaiji/Desktop/OpenCV/trainningdata/pos_image.txt",
 		"/E/Work/Code/test.cpp",
-		"/C/Users/kaiji/Desktop/HUST/data structure/实验一/main.cpp",
-		"/C/Users/kaiji/Desktop/HUST/data structure/实验二/main.cpp"
+		"/C/Users/kaiji/Desktop/HUST/data structure/实验一/main.cpp"
 	],
 	"find":
 	{
@@ -933,6 +960,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Jump",
+			"// Debug.Lo",
+			"Player",
+			"collider",
+			"script",
+			"script.CurrentState()",
+			"0",
+			"Player",
+			"PlayerWalkState",
+			"Player",
+			"PlayerIdleState",
+			"Player",
+			"Debug.Log",
+			"walk",
+			"audio",
+			"script",
 			"raycastLayer",
 			"LayerMask.GetMask(\"Ground\")",
 			"Ground",
@@ -1044,23 +1087,7 @@
 			"x",
 			"gameObject",
 			"Move",
-			"PlayerMoveState",
-			"stateMachine",
-			"StateMachine",
-			"Ass",
-			"Actor",
-			"actor",
-			"grabObject",
-			"HingeJoint2D",
-			"DistanceJoint2D",
-			"HingeJoint2D",
-			"joint",
-			"HingeJoint2D",
-			"Assert",
-			"player",
-			"\\",
-			"Vector2",
-			"HingeJoint2D"
+			"PlayerMoveState"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1068,6 +1095,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"PlayerShadow",
 			"initTransition",
 			"20 20",
 			"43 43",
@@ -1128,7 +1156,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -1144,8 +1172,8 @@
 						"selection":
 						[
 							[
-								1479,
-								1479
+								1653,
+								1653
 							]
 						],
 						"settings":
@@ -1156,10 +1184,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 288.0,
+						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1190,29 +1218,58 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/E/Work/Code/Unity/OpenCV/OpenCvTest/Assets/TestScript.cs",
+					"file": "Assets/Script/Levels/Level.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4382,
+						"buffer_size": 966,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								82,
-								82
+								508,
+								508
 							]
 						],
 						"settings":
 						{
-							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 756,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								143
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1221,11 +1278,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "Assets/Script/ResourceManager.cs",
 					"semi_transient": false,
 					"settings":
@@ -1237,8 +1294,8 @@
 						"selection":
 						[
 							[
-								735,
-								735
+								784,
+								784
 							]
 						],
 						"settings":
@@ -1254,14 +1311,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "Assets/Script/ActionManager.cs",
 					"semi_transient": false,
 					"settings":
@@ -1288,11 +1345,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Assets/Script/LevelManager.cs",
 					"semi_transient": false,
 					"settings":
@@ -1319,11 +1376,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Assets/Script/Puzzles/Puzzle.cs",
 					"semi_transient": false,
 					"settings":
@@ -1349,11 +1406,11 @@
 						"translation.y": 18.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "Assets/Script/Puzzles/Light/LightPuzzle.cs",
 					"semi_transient": false,
 					"settings":
@@ -1365,8 +1422,8 @@
 						"selection":
 						[
 							[
-								133,
-								145
+								943,
+								943
 							]
 						],
 						"settings":
@@ -1377,14 +1434,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 324.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "Assets/Script/Puzzles/Light/LightDetectorPuzzle.cs",
 					"semi_transient": false,
 					"settings":
@@ -1411,24 +1468,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "Assets/Script/Puzzles/Light/ShadowLightPuzzle.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 890,
+						"buffer_size": 1025,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								492,
-								492
+								441,
+								441
 							]
 						],
 						"settings":
@@ -1439,27 +1496,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "Assets/Script/Puzzles/Light/ShadowLightDetectorPuzzle.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1639,
+						"buffer_size": 1729,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								582
+								1595,
+								1595
 							]
 						],
 						"settings":
@@ -1470,31 +1527,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "Assets/Script/States/PlayerStates.cs",
+					"buffer": 12,
+					"file": "Assets/Script/UnityScript/PlayerControl.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5694,
+						"buffer_size": 2266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4670,
-								4670
-							],
+								818,
+								818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 69.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Assets/Script/UnityScript/PlayerShadowControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1817,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								4848,
-								4848
+								1299,
+								1299
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "Assets/Script/States/PlayerStates.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4766,
+								4766
 							]
 						],
 						"settings":
@@ -1506,44 +1619,49 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 609.0,
+						"translation.y": 2608.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "Assets/Script/UnityScript/PlayerControl.cs",
+					"buffer": 15,
+					"file": "Assets/Script/States/PlayerShadowStates.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2024,
+						"buffer_size": 1741,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1330,
-								1330
+								1518,
+								1518
 							]
 						],
 						"settings":
 						{
+							"origin_encoding":
+							[
+								"Chinese Simplified (GBK)",
+								"GBK"
+							],
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 378.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 16,
 					"file": "Assets/Script/States/StateMachine.cs",
 					"semi_transient": false,
 					"settings":
@@ -1555,8 +1673,8 @@
 						"selection":
 						[
 							[
-								1001,
-								1001
+								595,
+								595
 							]
 						],
 						"settings":
@@ -1568,10 +1686,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1620,7 +1738,7 @@
 	"project": "TXGame.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":

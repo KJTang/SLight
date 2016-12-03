@@ -42,7 +42,9 @@ public class PlayerControl : MonoBehaviour {
         if (enableMove) {
             stateMachine.Update();
         } else {
-            stateMachine.ChangeState("Idle");
+            if (stateMachine.curState.name != "Idle") {
+                stateMachine.ChangeState("Idle");
+            }
         }
 	}
 
