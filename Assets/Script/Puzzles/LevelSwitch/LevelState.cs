@@ -7,16 +7,16 @@ public class LevelState : Puzzle {
     public int levels_in_cheapter = 5;  
     public int num_of_cheapter = 5;
 
-    public List<float> savepoints = new List<float>();
+    public List<Vector2> savepoints = new List<Vector2>();
     static private int current_savepoints = 0;
 
     public Transform player;
 	
     // Use this for initialization
-	void Start () {
+	void Start () { 
         Assert.IsNotNull(player);
         if(savepoints.Count>0)
-            player.position =new Vector3( savepoints[current_savepoints],player.position.y, player.position.z);
+            player.position =new Vector3( savepoints[current_savepoints].x, savepoints[current_savepoints].y, player.position.z);
     }
 	// Update is called once per frame
 	public override void Update () {
@@ -49,7 +49,7 @@ public class LevelState : Puzzle {
         //refresh the current_savepoint
         if (current_savepoints+1 <= savepoints.Count - 1)
         {
-            if (player.position.x > savepoints[current_savepoints+1])
+            if (player.position.x > savepoints[current_savepoints+1].x)
             {
                 current_savepoints++;
                 //Debug.Log(current_savepoints);

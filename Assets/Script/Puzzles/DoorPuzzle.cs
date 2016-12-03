@@ -21,10 +21,10 @@ public class DoorPuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, 15.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, 15.0f));
     }
 
     void OnTriggerUp() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Moved_position, 2.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, 2.0f));
     }
 }

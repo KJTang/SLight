@@ -15,7 +15,7 @@ public class EnergSupplyPuzzle : Puzzle {
         base.Update();
         if (GetTrigger())
         {
-            Debug.Log(time_count);
+            //Debug.Log(time_count);
             time_count += Time.deltaTime;
         }
         if (time_count <= time_demand)

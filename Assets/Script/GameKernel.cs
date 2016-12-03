@@ -38,7 +38,7 @@ public class GameKernel : MonoBehaviour {
     }
 
     void Start() {
-        levelManager.ChangeLevel(levelManager.CreateCommonLevel("LevelA2"), true);
+        //levelManager.ChangeLevel(levelManager.CreateCommonLevel("LevelA2"), true);
         // levelManager.ChangeLevel(new Level002(), true);
         // Debugging
         inputManager.Enable = true;
