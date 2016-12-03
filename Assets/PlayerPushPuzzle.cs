@@ -22,12 +22,12 @@ public class PlayerPushPuzzle : Puzzle {
 	}
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         if(other.gameObject.name == "Ground (16)")
         {
 
             body.isKinematic = true;
-            Debug.Log("Done");
+            //Debug.Log("Done");
         }
     }
 }
