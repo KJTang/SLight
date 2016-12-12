@@ -27,6 +27,8 @@ public class LightDetectorPuzzle : Puzzle {
     }
 
     public virtual void RemoveLightPoint(GameObject light) {
-        lights.Remove(light);
+        if (lights.ContainsKey(light)) {
+            lights.Remove(light);
+        }
     }
 }
