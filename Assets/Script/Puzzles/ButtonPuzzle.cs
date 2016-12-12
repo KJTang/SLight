@@ -24,10 +24,10 @@ public class ButtonPuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Moved_position, 0.1f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Moved_position, 1f));
     }
 
     void OnTriggerUp() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Init_position, 0.1f));
+        GameKernel.actionManager.RunAction(new ActionMoveTo(sprite.gameObject, Init_position, 1f));
     }
 }
