@@ -17,6 +17,8 @@ public class PlayerControl : MonoBehaviour {
 
     public bool enableMove = true;
 
+    public bool isPlayerOnGround = false;
+
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
         collider2d = (Collider2D)gameObject.GetComponent<Collider2D>();
@@ -73,4 +75,29 @@ public class PlayerControl : MonoBehaviour {
     public string CurrentState() {
         return stateMachine.curState.name;
     }
+
+    // void OnCollisionEnter2D(Collision2D coll) {
+    //     LayerMask layer = LayerMask.GetMask(LayerMask.LayerToName(coll.gameObject.layer));
+    //     if ((layer & groundMask) != 0) {
+    //         Debug.Log(transform.position.y - coll.gameObject.transform.position.y);
+    //         // if (transform.position.y - coll.gameObject.transform.position.y)
+    //         // Debug.Log("----------------");
+    //         // foreach(ContactPoint2D contact in coll.contacts) {
+    //         //     Vector2 hitPoint = contact.point;
+    //         //     Debug.Log(hitPoint);
+    //         // }
+    //         // Debug.Log("++++++++++++++++");
+    //         Debug.Log(coll.collider.bounds);
+    //         isPlayerOnGround = true;
+    //     } else {
+    //         isPlayerOnGround = false;
+    //     }
+    // }
+
+    // void OnCollisionExit2D(Collision2D coll) {
+    //     LayerMask layer = LayerMask.GetMask(LayerMask.LayerToName(coll.gameObject.layer));
+    //     if ((layer & groundMask) != 0) {
+    //         isPlayerOnGround = false;
+    //     }
+    // }
 }

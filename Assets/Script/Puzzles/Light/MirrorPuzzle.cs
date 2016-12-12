@@ -52,6 +52,9 @@ public class MirrorPuzzle : LightDetectorPuzzle {
     }
 
     public override void RemoveLightPoint(GameObject light) {
+        if (!reflectLights.ContainsKey(light)) {
+            return;
+        }
         GameObject reflect = reflectLights[light];
         // remove recursively reflected lights
         reflect.GetComponent<ReflectLightPuzzle>().RemoveLightPointInDetector();

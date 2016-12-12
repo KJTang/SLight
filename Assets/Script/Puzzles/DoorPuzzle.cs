@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class DoorPuzzle : Puzzle {
-    //Transform sprite;
+    private bool acting = false;
     private Vector3 Init_position;
     public Vector3 Moved_position;
     void Start() {
@@ -13,18 +13,27 @@ public class DoorPuzzle : Puzzle {
     
     public override void Update() {
         base.Update();
-        if (GetTriggerDown()) {
+        if (GetTrigger() && !acting) {
             OnTriggerDown();
-        } else if (GetTriggerUp()) {
+            acting = true;
+        } else if (!GetTrigger() && acting) {
             OnTriggerUp();
+            acting = false;
         }
+        // if (GetTriggerDown()) {
+        //     OnTriggerDown();
+        // } else if (GetTriggerUp()) {
+        //     OnTriggerUp();
+        // }
     }
 
     void OnTriggerDown() {
+        Debug.Log("++++++");
         GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, 15.0f));
     }
 
     void OnTriggerUp() {
+        Debug.Log("------");
         GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, 2.0f));
     }
 }

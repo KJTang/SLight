@@ -11,13 +11,20 @@ public class LightPuzzle : Puzzle {
     protected Rigidbody2D hitBody;
     protected LightDetectorPuzzle hitScript;
 
+    protected bool isLightSegCreated = false;
+    protected GameObject lightSegPrefab;
+    protected GameObject lightSegObject;
+
     void Start() {
         isTriggered = false;
+        Debug.Log("+++++++++++++=");
+        // CreateLightSeg();
     }
     
     public override void Update() {
         base.Update();
         ShotLight();
+        DrawLight();
     }
 
     void FixedUpdate() {
@@ -40,6 +47,39 @@ public class LightPuzzle : Puzzle {
         Gizmos.color = Color.red;
         Vector3 direction = transform.TransformDirection(Vector3.up) * distance;
         Gizmos.DrawRay(transform.position, direction);
+    }
+
+    protected void DrawLight() {
+        if (!isLightSegCreated) {
+            CreateLightSeg();
+        }
+        float distance = 12.0f;
+        if (hitBody != null) {
+            distance = Vector3.Distance(transform.position, hitPoint);
+        }
+        // lightSegObject.transform.localScale = new 
+    }
+
+    protected void CreateLightSeg() {
+        lightSegPrefab = GameKernel.resourceManager.LoadPrefab("LightSeg", "Prefabs/LightSeg");
+        Assert.IsNotNull(lightSegPrefab);
+        lightSegObject = Object.Instantiate(lightSegPrefab) as GameObject;
+        Assert.IsNotNull(lightSegObject);
+        lightSegObject.transform.parent = transform;
+        lightSegObject.transform.localPosition = new Vector3(0, 0, 0);
+        lightSegObject.transform.localEulerAngles = new Vector3(0, 0, 0);
+        lightSegObject.transform.localScale = new Vector3(0.1f, 0.1f, 1.0f);
+        Debug.Log("+++++++++++++++++++" + lightSegObject.transform.position);
+
+        isLightSegCreated = true;
+    }
+
+    protected void RemoveLightSeg() {
+        Destroy(lightSegObject);
+        lightSegObject = null;
+        Debug.Log("---------------------------");
+
+        isLightSegCreated = false;
     }
 
     protected void ShotLight() {
@@ -68,6 +108,7 @@ public class LightPuzzle : Puzzle {
         // remove light point in Detector
         if (hitScript && isHit) {
             hitScript.RemoveLightPoint(gameObject);
+            RemoveLightSeg();
             isHit = false;
         }
     }

@@ -3,6 +3,8 @@ using UnityEngine.Assertions;
 using System.Collections;
 
 public class PlayerControlLightPuzzle : LightPuzzle {
+    public float offset = 0.2f;
+
     private GameObject player;
     private PlayerControl script;
 
@@ -30,9 +32,9 @@ public class PlayerControlLightPuzzle : LightPuzzle {
     void ChangeDirection() {
         Vector3 angle = transform.localEulerAngles;
         if (GameKernel.inputManager.GetKey(InputKey.Left)) {
-            transform.localEulerAngles = new Vector3(angle.x, angle.y, angle.z > 360.0f ? angle.z - 359.0f : angle.z + 1.0f);
+            transform.localEulerAngles = new Vector3(angle.x, angle.y, angle.z > 360.0f ? angle.z - 360.0f + offset : angle.z + offset);
         } else if (GameKernel.inputManager.GetKey(InputKey.Right)) {
-            transform.localEulerAngles = new Vector3(angle.x, angle.y, angle.z < 0.0f ? angle.z + 359.0f : angle.z - 1.0f);
+            transform.localEulerAngles = new Vector3(angle.x, angle.y, angle.z < 0.0f ? angle.z + 360.0f - offset : angle.z - offset);
         }
     }
 }
