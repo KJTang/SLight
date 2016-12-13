@@ -9,6 +9,5 @@ public class ReflectLightPuzzle : LightPuzzle {
     
     public override void Update() {
         base.Update();
-        // ShotLight();
     }
 }

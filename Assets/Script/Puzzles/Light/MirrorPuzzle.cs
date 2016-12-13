@@ -64,6 +64,14 @@ public class MirrorPuzzle : LightDetectorPuzzle {
         base.RemoveLightPoint(light);
     }
 
+    void OnDestroy() {
+        foreach (KeyValuePair<GameObject, GameObject> kvp in reflectLights) {
+            GameObject reflect = reflectLights[kvp.Key];
+            reflect.GetComponent<ReflectLightPuzzle>().RemoveLightPointInDetector();
+            Destroy(reflect);
+        }
+    }
+
     void OnDrawGizmos() {
         Gizmos.color = Color.green;
         Vector3 direction = transform.TransformDirection(Vector3.up) * 12;

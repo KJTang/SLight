@@ -4,6 +4,7 @@ using System.Collections;
 
 public class LightPuzzle : Puzzle {
     public LayerMask raycastLayer;
+    private float lightSegScaleFactor = 2.5f;
 
     protected bool isHit = false;
     protected Vector2 hitPoint;
@@ -17,8 +18,6 @@ public class LightPuzzle : Puzzle {
 
     void Start() {
         isTriggered = false;
-        Debug.Log("+++++++++++++=");
-        // CreateLightSeg();
     }
     
     public override void Update() {
@@ -52,32 +51,41 @@ public class LightPuzzle : Puzzle {
     protected void DrawLight() {
         if (!isLightSegCreated) {
             CreateLightSeg();
+        } else {
+            UpdateLightSeg();
         }
-        float distance = 12.0f;
-        if (hitBody != null) {
-            distance = Vector3.Distance(transform.position, hitPoint);
-        }
-        // lightSegObject.transform.localScale = new 
     }
 
     protected void CreateLightSeg() {
-        lightSegPrefab = GameKernel.resourceManager.LoadPrefab("LightSeg", "Prefabs/LightSeg");
-        Assert.IsNotNull(lightSegPrefab);
+        if (lightSegPrefab == null) {
+            lightSegPrefab = GameKernel.resourceManager.LoadPrefab("LightSeg", "Prefabs/LightSeg");
+            Assert.IsNotNull(lightSegPrefab);
+        }
         lightSegObject = Object.Instantiate(lightSegPrefab) as GameObject;
         Assert.IsNotNull(lightSegObject);
-        lightSegObject.transform.parent = transform;
-        lightSegObject.transform.localPosition = new Vector3(0, 0, 0);
-        lightSegObject.transform.localEulerAngles = new Vector3(0, 0, 0);
-        lightSegObject.transform.localScale = new Vector3(0.1f, 0.1f, 1.0f);
-        Debug.Log("+++++++++++++++++++" + lightSegObject.transform.position);
+        lightSegObject.transform.parent = null;
+        lightSegObject.transform.localPosition = transform.position;
+        lightSegObject.transform.localEulerAngles = transform.eulerAngles;
+        lightSegObject.transform.localScale = new Vector3(0.1f, 0.0f, 1.0f);
 
         isLightSegCreated = true;
+    }
+
+    protected void UpdateLightSeg() {
+        float distance = 12.0f;
+        Vector3 offset = transform.TransformDirection(Vector3.up) * distance + transform.position;
+        if (hitBody != null) {
+            offset = hitPoint;
+            distance = Vector3.Distance(transform.position, hitPoint);
+        }
+        lightSegObject.transform.localScale = new Vector3(0.1f, 0.1f * distance * lightSegScaleFactor, 1.0f);
+        lightSegObject.transform.localPosition = (transform.position + offset) / 2;
+        lightSegObject.transform.localEulerAngles = transform.eulerAngles;
     }
 
     protected void RemoveLightSeg() {
         Destroy(lightSegObject);
         lightSegObject = null;
-        Debug.Log("---------------------------");
 
         isLightSegCreated = false;
     }
@@ -111,5 +119,10 @@ public class LightPuzzle : Puzzle {
             RemoveLightSeg();
             isHit = false;
         }
+    }
+
+    void OnDestroy() {
+        RemoveLightSeg();
+        RemoveLightPointInDetector();
     }
 }
