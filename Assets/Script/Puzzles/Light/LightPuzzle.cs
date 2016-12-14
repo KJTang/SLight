@@ -121,6 +121,11 @@ public class LightPuzzle : Puzzle {
         }
     }
 
+    void OnDisable() {
+        RemoveLightSeg();
+        RemoveLightPointInDetector();
+    }
+
     void OnDestroy() {
         RemoveLightSeg();
         RemoveLightPointInDetector();

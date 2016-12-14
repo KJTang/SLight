@@ -30,6 +30,10 @@ public class ActionManager : IGameManager {
         ac.Init();
     }
 
+    public bool IsRunning(GameObject go) {
+        return actionList.ContainsKey(go);
+    }
+
     public void ClearAll() {
         actionList.Clear();
     }
