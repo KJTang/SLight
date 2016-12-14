@@ -33,7 +33,7 @@ public class TeleportPuzzle : Puzzle
                 
                 )
             );
-            Debug.Log(GameKernel.inputManager.Enable);
+            //Debug.Log(GameKernel.inputManager.Enable);
             destination.gameObject.GetComponent<TeleportPuzzle>().flag = true;
         }
         if (GetTriggerUp())

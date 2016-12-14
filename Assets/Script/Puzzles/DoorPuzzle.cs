@@ -5,6 +5,7 @@ public class DoorPuzzle : Puzzle {
     private bool acting = false;
     private Vector3 Init_position;
     public Vector3 Moved_position;
+    public float Move_Time = 15.0f;
     void Start() {
         //sprite = transform.Find("Sprite");
         //Assert.IsNotNull(sprite);
@@ -23,7 +24,7 @@ public class DoorPuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, 15.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, Move_Time));
     }
 
     void OnTriggerUp() {
