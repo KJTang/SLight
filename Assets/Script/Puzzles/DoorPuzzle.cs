@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class DoorPuzzle : Puzzle {
-    //Transform sprite;
+    private bool acting = false;
     private Vector3 Init_position;
     public Vector3 Moved_position;
+    public float Move_Time = 15.0f;
     void Start() {
         //sprite = transform.Find("Sprite");
         //Assert.IsNotNull(sprite);
@@ -13,15 +14,17 @@ public class DoorPuzzle : Puzzle {
     
     public override void Update() {
         base.Update();
-        if (GetTriggerDown()) {
+        if (GetTrigger() && !acting) {
             OnTriggerDown();
-        } else if (GetTriggerUp()) {
+            acting = true;
+        } else if (!GetTrigger() && acting) {
             OnTriggerUp();
+            acting = false;
         }
     }
 
     void OnTriggerDown() {
-        GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, 15.0f));
+        GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, Move_Time));
     }
 
     void OnTriggerUp() {

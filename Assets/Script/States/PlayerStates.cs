@@ -175,6 +175,14 @@ public class PlayerJumpState : State {
             }
             return;
         }
+        // if (script.isPlayerOnGround) {
+        //     if (Math.Abs(body.velocity.x) <= 0.0f) {
+        //         stateMachine.ChangeState("Idle");
+        //     } else {
+        //         stateMachine.ChangeState("Walk");
+        //     }
+        //     return;
+        // }
         // still Jump
         if (GameKernel.inputManager.GetKey(InputKey.Left)) {
             if (body.velocity.x >= -script.maxSpeed.x) {

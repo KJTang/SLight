@@ -4,12 +4,17 @@ using System.Collections;
 
 public class LightPuzzle : Puzzle {
     public LayerMask raycastLayer;
+    private float lightSegScaleFactor = 2.5f;
 
     protected bool isHit = false;
     protected Vector2 hitPoint;
     protected RaycastHit2D hit;
     protected Rigidbody2D hitBody;
     protected LightDetectorPuzzle hitScript;
+
+    protected bool isLightSegCreated = false;
+    protected GameObject lightSegPrefab;
+    protected GameObject lightSegObject;
 
     void Start() {
         isTriggered = false;
@@ -18,6 +23,7 @@ public class LightPuzzle : Puzzle {
     public override void Update() {
         base.Update();
         ShotLight();
+        DrawLight();
     }
 
     void FixedUpdate() {
@@ -40,6 +46,48 @@ public class LightPuzzle : Puzzle {
         Gizmos.color = Color.red;
         Vector3 direction = transform.TransformDirection(Vector3.up) * distance;
         Gizmos.DrawRay(transform.position, direction);
+    }
+
+    protected void DrawLight() {
+        if (!isLightSegCreated) {
+            CreateLightSeg();
+        } else {
+            UpdateLightSeg();
+        }
+    }
+
+    protected void CreateLightSeg() {
+        if (lightSegPrefab == null) {
+            lightSegPrefab = GameKernel.resourceManager.LoadPrefab("LightSeg", "Prefabs/LightSeg");
+            Assert.IsNotNull(lightSegPrefab);
+        }
+        lightSegObject = Object.Instantiate(lightSegPrefab) as GameObject;
+        Assert.IsNotNull(lightSegObject);
+        lightSegObject.transform.parent = null;
+        lightSegObject.transform.localPosition = transform.position;
+        lightSegObject.transform.localEulerAngles = transform.eulerAngles;
+        lightSegObject.transform.localScale = new Vector3(0.1f, 0.0f, 1.0f);
+
+        isLightSegCreated = true;
+    }
+
+    protected void UpdateLightSeg() {
+        float distance = 12.0f;
+        Vector3 offset = transform.TransformDirection(Vector3.up) * distance + transform.position;
+        if (hitBody != null) {
+            offset = hitPoint;
+            distance = Vector3.Distance(transform.position, hitPoint);
+        }
+        lightSegObject.transform.localScale = new Vector3(0.1f, 0.1f * distance * lightSegScaleFactor, 1.0f);
+        lightSegObject.transform.localPosition = (transform.position + offset) / 2;
+        lightSegObject.transform.localEulerAngles = transform.eulerAngles;
+    }
+
+    protected void RemoveLightSeg() {
+        Destroy(lightSegObject);
+        lightSegObject = null;
+
+        isLightSegCreated = false;
     }
 
     protected void ShotLight() {
@@ -68,7 +116,18 @@ public class LightPuzzle : Puzzle {
         // remove light point in Detector
         if (hitScript && isHit) {
             hitScript.RemoveLightPoint(gameObject);
+            RemoveLightSeg();
             isHit = false;
         }
+    }
+
+    void OnDisable() {
+        RemoveLightSeg();
+        RemoveLightPointInDetector();
+    }
+
+    void OnDestroy() {
+        RemoveLightSeg();
+        RemoveLightPointInDetector();
     }
 }

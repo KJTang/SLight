@@ -11,11 +11,11 @@ public class BoxPuzzle : Puzzle
     void Start()
     {
         Assert.IsNotNull(player);
+        gameObject.GetComponent<Rigidbody2D>().mass = 100;
         maxSpeed = player.GetComponent<PlayerControl>().maxSpeed;
         moveImpulse = player.GetComponent<PlayerControl>().moveImpulse;
         body = gameObject.GetComponent<Rigidbody2D>();
         //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        gameObject.GetComponent<Rigidbody2D>().mass = 1000;
     }
 
     public override void Update()
@@ -24,7 +24,6 @@ public class BoxPuzzle : Puzzle
         if (GetTriggerDown())
         {
             //gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            gameObject.GetComponent<Rigidbody2D>().mass = 1;
         }
         if (GetTrigger())
         {
@@ -32,18 +31,17 @@ public class BoxPuzzle : Puzzle
             {
                 if (GameKernel.inputManager.GetKey(InputKey.Left))
                 {
-                    body.AddForce(new Vector2(-moveImpulse, 0.0f), ForceMode2D.Impulse);
+                    body.AddForce(new Vector2(-100*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
                 if (GameKernel.inputManager.GetKey(InputKey.Right))
                 {
-                    body.AddForce(new Vector2(moveImpulse, 0.0f), ForceMode2D.Impulse);
+                    body.AddForce(new Vector2(100*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
             }   
         }
         if (GetTriggerUp())
         {
             //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            gameObject.GetComponent<Rigidbody2D>().mass = 1000;
             transform.rotation = new Quaternion(0,0,0,0);//排除移动箱子以后不能左右跳跃的bug
         }
     }

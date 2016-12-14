@@ -40,7 +40,7 @@ public class LevelManager : IGameManager {
         }
         curLevel = level;
         if (useTransistion) {
-            SceneManager.LoadScene("Scene/TransitionScene");
+    
             initTransition = false;
         } else {
             curLevel.OnEnter();
