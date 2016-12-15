@@ -4,7 +4,7 @@ using System.Collections;
 
 public class LightPuzzle : Puzzle {
     public LayerMask raycastLayer;
-    private float lightSegScaleFactor = 2.5f;
+    private float lightSegScaleFactor = 3.75f;
 
     protected bool isHit = false;
     protected Vector2 hitPoint;
@@ -78,7 +78,7 @@ public class LightPuzzle : Puzzle {
             offset = hitPoint;
             distance = Vector3.Distance(transform.position, hitPoint);
         }
-        lightSegObject.transform.localScale = new Vector3(0.1f, 0.1f * distance * lightSegScaleFactor, 1.0f);
+        lightSegObject.transform.localScale = new Vector3(0.05f, 0.1f * distance * lightSegScaleFactor, 1.0f);
         lightSegObject.transform.localPosition = (transform.position + offset) / 2;
         lightSegObject.transform.localEulerAngles = transform.eulerAngles;
     }
