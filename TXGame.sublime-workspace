@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"mo",
+				"moveTime"
+			],
+			[
+				"move",
+				"moveDist"
+			],
+			[
+				"mov",
+				"moveDist"
+			],
+			[
+				"ba",
+				"backDist"
+			],
+			[
+				"ac",
+				"actionManager"
+			],
+			[
+				"is",
+				"isToOrBy"
+			],
+			[
+				"On",
+				"OnTriggerUp"
+			],
+			[
+				"Remol",
+				"RemoveLightPointInDetector"
+			],
+			[
+				"Rem",
+				"RemoveLightSeg"
+			],
+			[
 				"hi",
 				"hitPoint"
 			],
@@ -18,10 +54,6 @@
 			[
 				"lig",
 				"lightSegScale"
-			],
-			[
-				"is",
-				"isLightSegScaled"
 			],
 			[
 				"lis",
@@ -138,10 +170,6 @@
 			[
 				"de",
 				"deltaTime"
-			],
-			[
-				"On",
-				"OnTouchEnded"
 			],
 			[
 				"Ont",
@@ -272,10 +300,6 @@
 				"LightInfo"
 			],
 			[
-				"ac",
-				"actionList"
-			],
-			[
 				"Lihg",
 				"LightDetectorPuzzle"
 			],
@@ -302,10 +326,6 @@
 			[
 				"Ve",
 				"Vector3"
-			],
-			[
-				"Rem",
-				"RemoveLightPoint"
 			],
 			[
 				"if",
@@ -494,26 +514,6 @@
 			[
 				"key",
 				"key"
-			],
-			[
-				"puz",
-				"puzzles"
-			],
-			[
-				"RAN",
-				"RANGE_OUT"
-			],
-			[
-				"SW",
-				"SWITCH_ON"
-			],
-			[
-				"Det",
-				"DetermineAnd"
-			],
-			[
-				"puzty",
-				"PuzzleType"
 			]
 		]
 	},
@@ -538,28 +538,19 @@
 			}
 		},
 		{
+			"file": "Assets/Script/ActionManager.cs",
+			"settings":
+			{
+				"buffer_size": 993,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Assets/Script/Levels/Level.cs",
 			"settings":
 			{
 				"buffer_size": 966,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
-			"settings":
-			{
-				"buffer_size": 756,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Script/UnityScript/PlayerShadowControl.cs",
-			"settings":
-			{
-				"buffer_size": 1817,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Unix"
 			}
@@ -584,44 +575,27 @@
 			"file": "Assets/Script/Puzzles/Light/LightPuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 4280,
+				"buffer_size": 4374,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Assets/Script/Puzzles/Light/MirrorPuzzle.cs",
+			"file": "Assets/Script/Puzzles/Light/RangeLightPuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 3180,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Script/Puzzles/Light/ReflectLightPuzzle.cs",
-			"settings":
-			{
-				"buffer_size": 250,
+				"buffer_size": 981,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Script/Puzzles/Light/PlayerControlLightPuzzle.cs",
+			"file": "Assets/Script/Puzzles/MovablePuzzle.cs",
 			"settings":
 			{
-				"buffer_size": 1250,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Script/Puzzles/Light/FixedDirLightPuzzle.cs",
-			"settings":
-			{
-				"buffer_size": 4242,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
+				"buffer_size": 2576,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -766,8 +740,15 @@
 	],
 	"file_history":
 	[
-		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/ButtonPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/MovablePuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/DoorPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/FixedDirLightPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/PlayerControlLightPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/ReflectLightPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/MirrorPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/PlayerShadowControl.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
+		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/ButtonPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/BackGroundMove.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/ActionManager.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/LevelManager.cs",
@@ -776,12 +757,8 @@
 		"/E/Work/Code/Unity/TXGame/Assets/Script/States/PlayerShadowStates.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/States/PlayerStates.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/PlayerControl.cs",
-		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/PlayerControlLightPuzzle.cs",
-		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/MirrorPuzzle.cs",
-		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/ReflectLightPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/LightDetectorPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/ResourceManager.cs",
-		"/E/Work/Code/Unity/TXGame/Assets/Script/UnityScript/PlayerShadowControl.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/ShadowLightPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Light/ShadowLightDetectorPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Resources/LevelA3_Image/Screen Shot 2016-12-02 at 21.04.09.png",
@@ -796,7 +773,6 @@
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/LevelSwitch/DrowningPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/LevelSwitch/LevelState.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/LevelSwitch/UntouchablePuzzle.cs",
-		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/Player/PlayerActionPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/DropWallPuzzle.cs",
 		"/E/Work/Code/Unity/TXGame/Assets/Script/Puzzles/MirrorPuzzle.cs",
@@ -891,9 +867,7 @@
 		"/C/Users/kaiji/Desktop/New folder/熬夜测试zbl/1/1/stack.h",
 		"/C/Users/kaiji/Desktop/New folder/熬夜测试zbl/1/1/main.c",
 		"/C/Users/kaiji/Desktop/New folder/熬夜测试zbl/1/1/stack.c",
-		"/C/Users/kaiji/Desktop/New folder/Game陈威宇/2/src/main.cpp",
-		"/C/Users/kaiji/Desktop/New folder/Game陈威宇/1/src/stack.cpp",
-		"/C/Users/kaiji/Desktop/New folder/Game陈威宇/3/src/cmd.cpp"
+		"/C/Users/kaiji/Desktop/New folder/Game陈威宇/2/src/main.cpp"
 	],
 	"find":
 	{
@@ -910,9 +884,12 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"MovablePuzzle.",
+			"move",
+			"To",
 			"x",
 			".parent",
 			"reflectLights",
@@ -1037,10 +1014,7 @@
 			");\n",
 			"(\"+++++++++++++++++++\");\n",
 			"// Debug.Log",
-			"Jump",
-			"// Debug.Log",
-			"Impulse",
-			"script"
+			"Jump"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1109,7 +1083,7 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -1140,7 +1114,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1156,8 +1130,8 @@
 						"selection":
 						[
 							[
-								1813,
-								1813
+								711,
+								711
 							]
 						],
 						"settings":
@@ -1171,11 +1145,42 @@
 						"translation.y": 142.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "Assets/Script/ActionManager.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								921,
+								921
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 117.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "Assets/Script/Levels/Level.cs",
 					"semi_transient": false,
 					"settings":
@@ -1202,73 +1207,11 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Assets/Script/Puzzles/RopeTriggerPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 756,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								143,
-								143
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "Assets/Script/UnityScript/PlayerShadowControl.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1817,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								332,
-								332
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "Assets/Script/Puzzles/Light/ShadowLightPuzzle.cs",
 					"semi_transient": false,
 					"settings":
@@ -1296,11 +1239,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "Assets/Script/Puzzles/Light/ShadowLightDetectorPuzzle.cs",
 					"semi_transient": false,
 					"settings":
@@ -1312,8 +1255,8 @@
 						"selection":
 						[
 							[
-								370,
-								443
+								508,
+								508
 							]
 						],
 						"settings":
@@ -1323,98 +1266,6 @@
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Assets/Script/Puzzles/Light/LightPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4280,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								693,
-								693
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 216.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Assets/Script/Puzzles/Light/MirrorPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3180,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2682,
-								2682
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 699.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Assets/Script/Puzzles/Light/ReflectLightPuzzle.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								247,
-								247
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1424,20 +1275,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "Assets/Script/Puzzles/Light/PlayerControlLightPuzzle.cs",
+					"buffer": 6,
+					"file": "Assets/Script/Puzzles/Light/LightPuzzle.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1250,
+						"buffer_size": 4374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								0,
+								4374
 							]
 						],
 						"settings":
@@ -1449,37 +1300,74 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 571.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "Assets/Script/Puzzles/Light/FixedDirLightPuzzle.cs",
+					"buffer": 7,
+					"file": "Assets/Script/Puzzles/Light/RangeLightPuzzle.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4242,
+						"buffer_size": 981,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								904,
+								904
 							]
 						],
 						"settings":
 						{
+							"is_init_dirty_state": false,
+							"origin_encoding":
+							[
+								"Chinese Simplified (GBK)",
+								"GBK"
+							],
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Assets/Script/Puzzles/MovablePuzzle.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2556,
+								2556
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 807.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
