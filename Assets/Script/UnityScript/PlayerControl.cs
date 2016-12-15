@@ -75,29 +75,4 @@ public class PlayerControl : MonoBehaviour {
     public string CurrentState() {
         return stateMachine.curState.name;
     }
-
-    // void OnCollisionEnter2D(Collision2D coll) {
-    //     LayerMask layer = LayerMask.GetMask(LayerMask.LayerToName(coll.gameObject.layer));
-    //     if ((layer & groundMask) != 0) {
-    //         Debug.Log(transform.position.y - coll.gameObject.transform.position.y);
-    //         // if (transform.position.y - coll.gameObject.transform.position.y)
-    //         // Debug.Log("----------------");
-    //         // foreach(ContactPoint2D contact in coll.contacts) {
-    //         //     Vector2 hitPoint = contact.point;
-    //         //     Debug.Log(hitPoint);
-    //         // }
-    //         // Debug.Log("++++++++++++++++");
-    //         Debug.Log(coll.collider.bounds);
-    //         isPlayerOnGround = true;
-    //     } else {
-    //         isPlayerOnGround = false;
-    //     }
-    // }
-
-    // void OnCollisionExit2D(Collision2D coll) {
-    //     LayerMask layer = LayerMask.GetMask(LayerMask.LayerToName(coll.gameObject.layer));
-    //     if ((layer & groundMask) != 0) {
-    //         isPlayerOnGround = false;
-    //     }
-    // }
 }
