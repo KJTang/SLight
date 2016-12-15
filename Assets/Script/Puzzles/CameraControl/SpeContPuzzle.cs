@@ -11,11 +11,10 @@ public class SpeContPuzzle : MonoBehaviour{
     public List<float> distance = new List<float>();
     public List<side> sides = new List<side>();
 
-    protected bool flag;
+    protected bool flag = true;
     // Use this for initialization
     void Start () {
         //Debug.Log(distance);
-        flag = true;
 	}
 	
 	// Update is called once per frame
