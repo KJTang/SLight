@@ -13,17 +13,18 @@ public class TeleportPuzzle : Puzzle
     private bool flag = false;
     void Start () {
         Assert.IsNotNull(player);
-        Assert.IsNotNull(destination);
+        //Assert.IsNotNull(destination);
     }
 	
 	// Update is called once per frame
 	public override void Update () {
         base.Update();
-        if (GetTriggerDown()&&flag == false)
+        if (GetTriggerDown()&&flag == false&&destination)
         {
+
             GameKernel.inputManager.Enable = false;
             GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
-                new ActionDelay(gameObject, 0.5f),
+                new ActionDelay(gameObject, 0.3f),
                 new ActionCallFunc(player.gameObject, (object obj) =>
                 {
                     GameObject go = (GameObject)obj;

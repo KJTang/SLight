@@ -11,9 +11,9 @@ public class SpecialDoorPuzzle : DoorPuzzle {
         Assert.IsNotNull(p2);
         Assert.IsNotNull(p3);
         rer = gameObject.GetComponent<SpriteRenderer>();
-        Texture2D texture2d = (Texture2D)Resources.Load("LevelA3_Image/Puz");
+        Texture2D texture2d = (Texture2D)Resources.Load("LevelA3_Image/Puz2");
         sp1 = Sprite.Create(texture2d, rer.sprite.textureRect, new Vector2(0.5f, 0.5f));
-        texture2d = (Texture2D)Resources.Load("LevelA3_Image/Puz");
+        texture2d = (Texture2D)Resources.Load("LevelA3_Image/Puz3");
         sp2 = Sprite.Create(texture2d, rer.sprite.textureRect, new Vector2(0.5f, 0.5f));
         texture2d = (Texture2D)Resources.Load("LevelA3_Image/Puz");
         sp3 = Sprite.Create(texture2d, rer.sprite.textureRect, new Vector2(0.5f, 0.5f));

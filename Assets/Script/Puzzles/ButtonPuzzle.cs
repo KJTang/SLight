@@ -10,7 +10,7 @@ public class ButtonPuzzle : Puzzle {
         Init_position = transform.position;
         //sprite = transform.Find("Sprite");
         sprite = transform.GetChild(0);
-        Debug.Log(sprite);
+        //Debug.Log(sprite);
         Assert.IsNotNull(sprite);
     }
     

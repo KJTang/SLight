@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class DoorPuzzle : Puzzle {
-    private bool acting = false;
+    protected bool acting = false;
     private Vector3 Init_position;
     public Vector3 Moved_position;
     public float Move_Time = 15.0f;
@@ -23,11 +23,11 @@ public class DoorPuzzle : Puzzle {
         }
     }
 
-    void OnTriggerDown() {
+    protected void OnTriggerDown() {
         GameKernel.actionManager.RunAction(new ActionMoveBy(gameObject, Moved_position, Move_Time));
     }
 
-    void OnTriggerUp() {
-        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, 2.0f));
+    protected void OnTriggerUp() {
+        GameKernel.actionManager.RunAction(new ActionMoveTo(gameObject, Init_position, Move_Time));
     }
 }

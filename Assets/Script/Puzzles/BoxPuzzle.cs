@@ -31,11 +31,11 @@ public class BoxPuzzle : Puzzle
             {
                 if (GameKernel.inputManager.GetKey(InputKey.Left))
                 {
-                    body.AddForce(new Vector2(-100*moveImpulse, 0.0f), ForceMode2D.Impulse);
+                    body.AddForce(new Vector2(-200*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
                 if (GameKernel.inputManager.GetKey(InputKey.Right))
                 {
-                    body.AddForce(new Vector2(100*moveImpulse, 0.0f), ForceMode2D.Impulse);
+                    body.AddForce(new Vector2(200*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
             }   
         }
