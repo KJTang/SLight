@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sp_B1 : SpeContPuzzle {
+public class Sp_B1 : Sp_B2 {
     public Puzzle sp1, sp2;
     public Vector3 sd1;
     public Transform ball;

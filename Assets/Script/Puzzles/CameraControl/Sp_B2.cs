@@ -5,14 +5,15 @@ using System.Collections.Generic;
 
 public class Sp_B2 : MonoBehaviour {
     public Transform target;
+
+    protected bool flag = true;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (target)
+	public virtual void Update () {
+        if (target&&flag)
         {
             //Debug.Log("judgemove");
             if (Math.Abs(transform.position.x - target.transform.position.x) >= 0.01f ||

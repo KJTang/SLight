@@ -35,7 +35,7 @@ public class LevelState : Puzzle {
             }
             else if (puzzles[1].isTriggered)
             {
-                Debug.Log("-----------");
+    
                 GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Current_LevelName), true);
             }
         }

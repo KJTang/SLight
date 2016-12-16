@@ -19,7 +19,7 @@ public class SpeContPuzzle : MonoBehaviour{
 	
 	// Update is called once per frame
 	virtual public void Update () {
-        Debug.Log(flag);
+        //Debug.Log(flag);
         if (target)
         {
             //Debug.Log("judgemove");
@@ -30,9 +30,14 @@ public class SpeContPuzzle : MonoBehaviour{
                 int i = 0;
                 foreach(Puzzle p in puzzles)
                 {
+                    //if (i == 0) Debug.Log(p);
+                    if (i == 0&&p.GetTriggerDown())
+                    {
+                        Debug.Log("11");
+                        
+                    }
                     if (p.GetTriggerDown() && flag)
                     {
-                        //Debug.Log("11");
                         flag = false;
                         if (sides[i] == side.downside) if (distance[i] >= 0) distance[i] = -distance[i];
                         GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
