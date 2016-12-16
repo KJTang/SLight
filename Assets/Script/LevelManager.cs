@@ -40,7 +40,6 @@ public class LevelManager : IGameManager {
         }
         curLevel = level;
         if (useTransistion) {
-    
             initTransition = false;
         } else {
             curLevel.OnEnter();
@@ -48,7 +47,7 @@ public class LevelManager : IGameManager {
     }
 
     public Level CreateCommonLevel(string name) {
-        Debug.Log(name);
+        // Debug.Log(name);
         return new CommonLevel(name);
     }
 }

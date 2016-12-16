@@ -22,13 +22,13 @@ public class Level {
 
 public class CommonLevel : Level {
     public CommonLevel(string str) {
-        Debug.Log(str);
         name = str;
     }
 
     public override void OnEnter() {
         SceneManager.LoadSceneAsync("Scene/" + name);
         GameKernel.inputManager.Enable = true;
+        SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
     public override void Update() {
@@ -37,6 +37,10 @@ public class CommonLevel : Level {
 
     public override void OnExit() { 
         GameKernel.inputManager.Enable = false;
+        SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+
+    void OnSceneChanged(Scene previousScene, Scene newScene) {
         GameKernel.actionManager.ClearAll();
     }
 }
