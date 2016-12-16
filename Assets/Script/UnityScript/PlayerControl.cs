@@ -7,7 +7,8 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D body;
     private Collider2D collider2d;
     private AudioSource audioSource;
-    private StateMachine stateMachine;
+
+    public StateMachine stateMachine;
 
     public Vector2 maxSpeed = new Vector2(3.0f, 3.0f);
     public float moveImpulse = 0.2f;
@@ -16,8 +17,10 @@ public class PlayerControl : MonoBehaviour {
     public LayerMask groundMask;
 
     public bool enableMove = true;
-
-    public bool isPlayerOnGround = false;
+    public bool enableState = true;
+    public string lockStateName = "Idle";
+    // TODO: code not good below
+    public bool isPlayerClimbingLadder = false;
 
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
@@ -33,6 +36,7 @@ public class PlayerControl : MonoBehaviour {
         stateMachine.AddState(new PlayerIdleState());
         stateMachine.AddState(new PlayerWalkState());
         stateMachine.AddState(new PlayerJumpState());
+        stateMachine.AddState(new PlayerClimbLadderState());
         stateMachine.ChangeState("Idle");
     }
 	
@@ -41,12 +45,12 @@ public class PlayerControl : MonoBehaviour {
         DoMove();
         DoAction();
 
-        if (enableMove) {
-            stateMachine.Update();
-        } else {
-            if (stateMachine.curState.name != "Idle") {
-                stateMachine.ChangeState("Idle");
+        if (!enableState) {
+            if (stateMachine.curState.name != lockStateName) {
+                stateMachine.ChangeState(lockStateName);
             }
+        } else {
+            stateMachine.Update();
         }
 	}
 

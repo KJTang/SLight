@@ -7,18 +7,21 @@ using System.Collections.Generic;
 public class PlayerIdleState : State {
     Animator animator;
     AudioSource audio;
+    PlayerControl script;
 
     public PlayerIdleState() {
         name = "Idle";
     }
 
     public override void OnEnter() {
-        // Debug.Log("Idle OnEnter");
+        Debug.Log("Idle OnEnter");
 
         animator = stateMachine.gameObject.GetComponent<Animator>();
-        audio = stateMachine.gameObject.GetComponent<AudioSource>();
         Assert.IsNotNull(animator);
+        audio = stateMachine.gameObject.GetComponent<AudioSource>();
         Assert.IsNotNull(audio);
+        script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(script);
 
         animator.SetBool("IsIdling", true);
 
@@ -28,6 +31,12 @@ public class PlayerIdleState : State {
     }
 
     public override void Update() {
+        // Climb Ladder
+        Debug.Log("==="+script.isPlayerClimbingLadder);
+        if (script.isPlayerClimbingLadder) {
+            stateMachine.ChangeState("ClimbLadder");
+            return;
+        }
         // Jump
         if (GameKernel.inputManager.GetKey(InputKey.Jump)) {
             stateMachine.ChangeState("Jump");
@@ -41,7 +50,7 @@ public class PlayerIdleState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Idle OnExit");
+        Debug.Log("Idle OnExit");
         animator.SetBool("IsIdling", false);
     }
 }
@@ -61,7 +70,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnEnter() {
-        // Debug.Log("Walk OnEnter");
+        Debug.Log("Walk OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
         body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
@@ -109,7 +118,7 @@ public class PlayerWalkState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Walk OnExit");
+        Debug.Log("Walk OnExit");
         animator.SetBool("IsWalking", false);
     }
 }
@@ -136,7 +145,7 @@ public class PlayerJumpState : State {
     }
 
     public override void OnEnter() {
-        // Debug.Log("Jump OnEnter");
+        Debug.Log("Jump OnEnter");
         animator = stateMachine.gameObject.GetComponent<Animator>();
         Assert.IsNotNull(animator);
         collider = stateMachine.gameObject.GetComponent<Collider2D>();
@@ -146,7 +155,6 @@ public class PlayerJumpState : State {
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
         Assert.IsNotNull(script);
         animator.SetBool("IsJumping", true);
-        body.velocity = new Vector3(0, 0, 0);
         if (!isJumpTakingEffect) {
             if (body.velocity.y <= -0.01f && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
                 // if falling, jump in air
@@ -176,14 +184,6 @@ public class PlayerJumpState : State {
             }
             return;
         }
-        // if (script.isPlayerOnGround) {
-        //     if (Math.Abs(body.velocity.x) <= 0.0f) {
-        //         stateMachine.ChangeState("Idle");
-        //     } else {
-        //         stateMachine.ChangeState("Walk");
-        //     }
-        //     return;
-        // }
         // still Jump
         if (GameKernel.inputManager.GetKey(InputKey.Left)) {
             if (body.velocity.x >= -script.maxSpeed.x) {
@@ -198,7 +198,44 @@ public class PlayerJumpState : State {
     }
 
     public override void OnExit() {
-        // Debug.Log("Jump OnExit");
+        Debug.Log("Jump OnExit");
         animator.SetBool("IsJumping", false);
+    }
+}
+
+
+public class PlayerClimbLadderState : State {
+    Animator animator;
+    Collider2D collider;
+    Rigidbody2D body;
+    PlayerControl script;
+
+    public PlayerClimbLadderState() {
+        name = "ClimbLadder";
+    }
+
+    public override void OnEnter() {
+        Debug.Log("ClimbLadder OnEnter");
+        animator = stateMachine.gameObject.GetComponent<Animator>();
+        Assert.IsNotNull(animator);
+        collider = stateMachine.gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider);
+        body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(body);
+        script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(script);
+        animator.SetBool("IsClimbingLadder", true);
+    }
+
+    public override void Update() {
+        if (!script.isPlayerClimbingLadder) {
+            stateMachine.ChangeState("Idle");
+            return;
+        }
+    }
+
+    public override void OnExit() {
+        Debug.Log("ClimbLadder OnExit");
+        animator.SetBool("IsClimbingLadder", false);
     }
 }

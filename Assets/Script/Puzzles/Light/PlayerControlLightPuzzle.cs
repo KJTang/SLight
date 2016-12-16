@@ -20,12 +20,14 @@ public class PlayerControlLightPuzzle : LightPuzzle {
         base.Update();
         if (GetTriggerDown()) {
             script.enableMove = false;
+            script.enableState = false;
         }
         if (GetTrigger()) {
             ChangeDirection();
         }
         if (GetTriggerUp()) {
             script.enableMove = true;
+            script.enableState = true;
         }
     }
 

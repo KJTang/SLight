@@ -2,54 +2,56 @@
 using System.Collections;
 using UnityEngine.Assertions;
 public class LadderPuzzle : Puzzle {
+    //p1 is downside ,p2 is upside;
     public Puzzle p1, p2;
-    public Puzzle Up, Down;
     public Transform player;
     public float length, time;
-    //p1 is downside ,p2 is upside;
+
+    private Animator playerAnimator;
+
 	// Use this for initialization
 	void Start () {
         Assert.IsNotNull(player);
+        playerAnimator = player.GetComponent<Animator>();
+        Assert.IsNotNull(playerAnimator);
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
-        Up.isTriggered = false;
-        Down.isTriggered = false;
         if (p1.GetTriggerDown()&&!GameKernel.actionManager.IsRunning(player.gameObject))
         {
-            Debug.Log("p1 is running");
-            Down.isTriggered = true;
-            Debug.Log(Down.isTriggered);
+            // Debug.Log("p1 is running");
             player.GetComponent<Rigidbody2D>().isKinematic = true;
             player.GetComponent<PlayerControl>().enableMove = false;
+            player.GetComponent<PlayerControl>().isPlayerClimbingLadder = true;
             GameKernel.actionManager.RunAction(new ActionSequence(player.gameObject,
                 new ActionMoveBy(player.gameObject, new Vector3(0, -length, 0), time),
                 new ActionCallFunc(player.gameObject, (object obj) =>
                 {
                     player.GetComponent<PlayerControl>().enableMove = true;
                     player.GetComponent<Rigidbody2D>().isKinematic = false;
-                    //Debug.Log("run ac2");
+                    player.GetComponent<PlayerControl>().isPlayerClimbingLadder = false;
                 })
                 )
             );
         }
         if (p2.GetTriggerDown() && !GameKernel.actionManager.IsRunning(player.gameObject))
         {
-            Up.isTriggered = true;
+            // Debug.Log("p2 is running");
             player.GetComponent<Rigidbody2D>().isKinematic = true;
             player.GetComponent<PlayerControl>().enableMove = false;
+            player.GetComponent<PlayerControl>().isPlayerClimbingLadder = true;
+            Debug.Log(player.GetComponent<PlayerControl>().isPlayerClimbingLadder);
             GameKernel.actionManager.RunAction(new ActionSequence(player.gameObject,
                 new ActionMoveBy(player.gameObject, new Vector3(0, length, 0), time),
                 new ActionCallFunc(player.gameObject, (object obj) =>
                 {
                     player.GetComponent<PlayerControl>().enableMove = true;
                     player.GetComponent<Rigidbody2D>().isKinematic = false;
-                    //Debug.Log("run ac2");
+                    player.GetComponent<PlayerControl>().isPlayerClimbingLadder = false;
                 })
                 )
             );
         }
-        if(Down.isTriggered)Debug.Log(Down.isTriggered);
     }
 }
