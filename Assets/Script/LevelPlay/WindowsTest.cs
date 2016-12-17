@@ -23,7 +23,7 @@ public class WindowsTest : MonoBehaviour {
     {
         GUI.skin = customSkin;
         //if()
-        if (GUI.Button(new Rect(10, 10, 40, 40), exitButton))
+        if (GUI.Button(new Rect(10, 10, 160, 160), exitButton))
         {
             showExitWindow = true; 
         }

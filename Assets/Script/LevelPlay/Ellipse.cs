@@ -100,6 +100,9 @@ public class Ellipse : MonoBehaviour
                 if (i == 1)
                 {
                     Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                    Vector3 ChangecenterPosX1 = centerPoint.position;
+                    ChangecenterPosX1.x = ChangecenterPosX1.x + 120;
+                    Sprites[i].transform.position = getPosition(angle, ChangecenterPosX1);
                 }
 
                 //       m_rightsprite.Add(Sprites[i]);  
@@ -111,17 +114,19 @@ public class Ellipse : MonoBehaviour
            
             for (int i = size; i < Sprites.Length - 1; i++)
             {
-                Sprites[i].transform.position = getPosition(angle, centerPos);
+                Vector3 ChangecenterPosX = centerPoint.position;
+                ChangecenterPosX.x = ChangecenterPosX.x - 120;
+                Sprites[i].transform.position = getPosition(angle, ChangecenterPosX);
                 Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                 angle -= anglecheap;
                 //  m_leftsprite.Add(Sprites[i]);  
             }
             //最后一个  
             Vector3 ChangecenterPos = centerPoint.position;
-            ChangecenterPos.y = ChangecenterPos.y-20;
+            ChangecenterPos.y = ChangecenterPos.y+120;
 
-            Sprites[Sprites.Length - 1].transform.position = getPosition(90, ChangecenterPos);
-            Sprites[Sprites.Length - 1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            Sprites[3].transform.position = getPosition(90, ChangecenterPos);
+            Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             // m_leftsprite.Add(Sprites[Sprites.Length - 1]);  
             return;
         }
