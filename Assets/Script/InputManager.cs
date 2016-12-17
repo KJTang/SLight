@@ -75,7 +75,7 @@ public class InputManager : IGameManager {
         DetectInputOnPC();
         #endif
 
-        // InputTest();
+        //InputTest();
     }
 
     #if UNITY_IOS || UNITY_ANDROID
@@ -306,9 +306,10 @@ public class InputManager : IGameManager {
     #endif
 
     #if UNITY_WINDOWS || UNITY_LINUX || UNITY_EDITOR
-    private Dictionary<InputKey, KeyCode> keyMap = new Dictionary<InputKey, KeyCode>(10);    
+    private Dictionary<InputKey, KeyCode> keyMap = new Dictionary<InputKey, KeyCode>(10);
 
-    void InitInputOnPC() {
+    void InitInputOnPC()
+    {
         keyMap.Add(InputKey.Left, KeyCode.A);
         keyMap.Add(InputKey.Right, KeyCode.D);
         keyMap.Add(InputKey.Up, KeyCode.W);
@@ -317,9 +318,11 @@ public class InputManager : IGameManager {
         keyMap.Add(InputKey.Action, KeyCode.K);
     }
 
-    void DetectInputOnPC() {
+    void DetectInputOnPC()
+    {
         List<InputKey> keys = new List<InputKey>(inputDict.Keys);
-        foreach (InputKey key in keys) {
+        foreach (InputKey key in keys)
+        {
             KeyInfo info = inputDict[key];
             info.keyUp = Input.GetKeyUp(keyMap[key]);
             info.keyDown = Input.GetKeyDown(keyMap[key]);
@@ -327,7 +330,7 @@ public class InputManager : IGameManager {
             inputDict[key] = info;
         }
     }
-    #endif    
+    #endif
 
     void InputTest() {
         Debug.Log("Left: " + (GetKey(InputKey.Left) ? "true" : "false") + " " + 
