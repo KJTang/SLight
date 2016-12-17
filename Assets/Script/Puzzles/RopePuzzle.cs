@@ -9,6 +9,7 @@ public class RopePuzzle : Puzzle {
     public Vector2 segSize = new Vector2(0.1f, 0.3f);
     public float segMass = 0.1f;
     public Sprite sprite;
+    public string spriteLayer = "ForeGround";
     public Vector3 spriteScale = new Vector3(1f, 3f, 1f);
     public int grabPos = 0;
     public GameObject grabTrigger;
@@ -55,7 +56,7 @@ public class RopePuzzle : Puzzle {
 
             //Rigidbody2D rid2d = segSprite.AddComponent<Rigidbody2D>();
             //BoxCollider2D b2d = segSprite.AddComponent<BoxCollider2D>();
-            segSprite.GetComponent<SpriteRenderer>().sortingLayerName = "Ground";
+            segSprite.GetComponent<SpriteRenderer>().sortingLayerName = spriteLayer;
             renderer.sprite = sprite;
             renderer.transform.localScale = spriteScale;
             rope.Add(seg);
