@@ -85,6 +85,7 @@ public class RopePuzzle : Puzzle {
     void PlayerGetUp() {
         GameObject player = GameObject.Find("Player");
         Assert.IsNotNull(player);
+        player.GetComponent<PlayerControl>().isPlayerClimbingRope = true;
         GameObject grabSeg = rope[grabPos];
         player.transform.position = grabSeg.transform.position;
         grabJoint = grabSeg.AddComponent<FixedJoint2D>();
@@ -110,5 +111,9 @@ public class RopePuzzle : Puzzle {
         } else {
             grabTrigger.SetActive(false);
         }
+
+        GameObject player = GameObject.Find("Player");
+        Assert.IsNotNull(player);
+        player.GetComponent<PlayerControl>().isPlayerClimbingRope = false;
     }
 }

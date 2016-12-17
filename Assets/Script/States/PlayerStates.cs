@@ -32,9 +32,13 @@ public class PlayerIdleState : State {
 
     public override void Update() {
         // Climb Ladder
-        // Debug.Log("==="+script.isPlayerClimbingLadder);
         if (script.isPlayerClimbingLadder) {
             stateMachine.ChangeState("ClimbLadder");
+            return;
+        }
+        // Climb Rope
+        if (script.isPlayerClimbingRope) {
+            stateMachine.ChangeState("ClimbRope");
             return;
         }
         // Jump
@@ -85,6 +89,16 @@ public class PlayerWalkState : State {
     }
 
     public override void Update() {
+        // Climb Ladder
+        if (script.isPlayerClimbingLadder) {
+            stateMachine.ChangeState("ClimbLadder");
+            return;
+        }
+        // Climb Rope
+        if (script.isPlayerClimbingRope) {
+            stateMachine.ChangeState("ClimbRope");
+            return;
+        }
         // Jump
         if (GameKernel.inputManager.GetKey(InputKey.Jump)) {
             stateMachine.ChangeState("Jump");
@@ -109,7 +123,7 @@ public class PlayerWalkState : State {
         }
         // sound effect
         deltaTime += Time.deltaTime;
-        if (deltaTime >= soundDelta) {
+        if (deltaTime >= soundDelta && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
             AudioClip clip = Resources.Load("SoundEffect/脚步/脚步-硬地") as AudioClip;
             Assert.IsNotNull(clip);
             audio.PlayOneShot(clip);
@@ -177,6 +191,16 @@ public class PlayerJumpState : State {
             }
             return;
         }
+        // Climb Ladder
+        if (script.isPlayerClimbingLadder) {
+            stateMachine.ChangeState("ClimbLadder");
+            return;
+        }
+        // Climb Rope
+        if (script.isPlayerClimbingRope) {
+            stateMachine.ChangeState("ClimbRope");
+            return;
+        }
         // Idle or Walk
         if (collider.IsTouchingLayers(script.groundMask.value)) {
             if (Math.Abs(body.velocity.x) <= 0.0f) {
@@ -204,7 +228,6 @@ public class PlayerJumpState : State {
         animator.SetBool("IsJumping", false);
     }
 }
-
 
 public class PlayerClimbLadderState : State {
     Animator animator;
@@ -239,5 +262,53 @@ public class PlayerClimbLadderState : State {
     public override void OnExit() {
         // Debug.Log("ClimbLadder OnExit");
         animator.SetBool("IsClimbingLadder", false);
+    }
+}
+
+
+public class PlayerClimbRopeState : State {
+    Animator animator;
+    Collider2D collider;
+    Rigidbody2D body;
+    PlayerControl script;
+
+    public PlayerClimbRopeState() {
+        name = "ClimbRope";
+    }
+
+    public override void OnEnter() {
+        // Debug.Log("ClimbRope OnEnter");
+        animator = stateMachine.gameObject.GetComponent<Animator>();
+        Assert.IsNotNull(animator);
+        collider = stateMachine.gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider);
+        body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(body);
+        script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(script);
+        animator.SetBool("IsClimbingRope", true);
+    }
+
+    public override void Update() {
+        if (!script.isPlayerClimbingRope) {
+            stateMachine.ChangeState("Idle");
+            return;
+        }
+        // still Climb
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            if (body.velocity.x >= -script.maxSpeed.x) {
+                body.AddForce(new Vector2(-script.moveImpulse / 2, 0.0f), ForceMode2D.Impulse);
+            }
+        }
+        if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            if (body.velocity.x <= script.maxSpeed.x) {
+                body.AddForce(new Vector2(script.moveImpulse / 2, 0.0f), ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    public override void OnExit() {
+        // Debug.Log("ClimbRope OnExit");
+        animator.SetBool("IsClimbingRope", false);
     }
 }

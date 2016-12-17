@@ -21,6 +21,7 @@ public class PlayerControl : MonoBehaviour {
     public string lockStateName = "Idle";
     // TODO: code not good below
     public bool isPlayerClimbingLadder = false;
+    public bool isPlayerClimbingRope = false;
 
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
@@ -37,6 +38,7 @@ public class PlayerControl : MonoBehaviour {
         stateMachine.AddState(new PlayerWalkState());
         stateMachine.AddState(new PlayerJumpState());
         stateMachine.AddState(new PlayerClimbLadderState());
+        stateMachine.AddState(new PlayerClimbRopeState());
         stateMachine.ChangeState("Idle");
     }
 	
