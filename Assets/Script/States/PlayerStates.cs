@@ -41,6 +41,16 @@ public class PlayerIdleState : State {
             stateMachine.ChangeState("ClimbRope");
             return;
         }
+        // Push Left
+        if (script.isPlayerPushingLeft) {
+            stateMachine.ChangeState("PushLeft");
+            return;
+        }
+        // Push Right
+        if (script.isPlayerPushingRight) {
+            stateMachine.ChangeState("PushRight");
+            return;
+        }
         // Jump
         if (GameKernel.inputManager.GetKey(InputKey.Jump)) {
             stateMachine.ChangeState("Jump");
@@ -97,6 +107,16 @@ public class PlayerWalkState : State {
         // Climb Rope
         if (script.isPlayerClimbingRope) {
             stateMachine.ChangeState("ClimbRope");
+            return;
+        }
+        // Push Left
+        if (script.isPlayerPushingLeft) {
+            stateMachine.ChangeState("PushLeft");
+            return;
+        }
+        // Push Right
+        if (script.isPlayerPushingRight) {
+            stateMachine.ChangeState("PushRight");
             return;
         }
         // Jump
@@ -265,7 +285,6 @@ public class PlayerClimbLadderState : State {
     }
 }
 
-
 public class PlayerClimbRopeState : State {
     Animator animator;
     Collider2D collider;
@@ -310,5 +329,143 @@ public class PlayerClimbRopeState : State {
     public override void OnExit() {
         // Debug.Log("ClimbRope OnExit");
         animator.SetBool("IsClimbingRope", false);
+    }
+}
+
+public class PlayerPushLeftState : State {
+    Animator animator;
+    Collider2D collider;
+    Rigidbody2D body;
+    PlayerControl script;
+
+    bool isPlaying = false;
+    bool isPlayingReverse = false;
+
+    public PlayerPushLeftState() {
+        name = "PushLeft";
+    }
+
+    public override void OnEnter() {
+        // Debug.Log("PushLeft OnEnter");
+        animator = stateMachine.gameObject.GetComponent<Animator>();
+        Assert.IsNotNull(animator);
+        collider = stateMachine.gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider);
+        body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(body);
+        script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(script);
+        
+        animator.Play("PushStop");
+        script.enableMove = false;
+    }
+
+    public override void Update() {
+        if (!script.isPlayerPushingLeft) {
+            stateMachine.ChangeState("Idle");
+            return;
+        }
+        // still PushLeft
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            if (body.velocity.x >= -script.maxSpeed.x) {
+                body.AddForce(new Vector2(-script.moveImpulse, 0.0f), ForceMode2D.Impulse);
+            }
+            if (isPlaying) {
+                isPlaying = false;
+            }
+            if (!isPlayingReverse) {
+                animator.Play("PushReverse");
+                isPlayingReverse = true;
+            }
+        } else if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            if (body.velocity.x <= script.maxSpeed.x) {
+                body.AddForce(new Vector2(script.moveImpulse, 0.0f), ForceMode2D.Impulse);
+            }
+            if (isPlayingReverse) {
+                isPlayingReverse = false;
+            }
+            if (!isPlaying) {
+                animator.Play("Push");
+                isPlaying = true;
+            }
+        } else {
+            animator.Play("PushStop");
+            isPlaying = false;
+            isPlayingReverse = false;
+        }
+    }
+
+    public override void OnExit() {
+        // Debug.Log("PushLeft OnExit");
+        script.enableMove = true;
+    }
+}
+
+public class PlayerPushRightState : State {
+    Animator animator;
+    Collider2D collider;
+    Rigidbody2D body;
+    PlayerControl script;
+
+    bool isPlaying = false;
+    bool isPlayingReverse = false;
+
+    public PlayerPushRightState() {
+        name = "PushRight";
+    }
+
+    public override void OnEnter() {
+        // Debug.Log("PushRight OnEnter");
+        animator = stateMachine.gameObject.GetComponent<Animator>();
+        Assert.IsNotNull(animator);
+        collider = stateMachine.gameObject.GetComponent<Collider2D>();
+        Assert.IsNotNull(collider);
+        body = stateMachine.gameObject.GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(body);
+        script = stateMachine.gameObject.GetComponent<PlayerControl>();
+        Assert.IsNotNull(script);
+        
+        animator.Play("PushStop");
+        script.enableMove = false;
+    }
+
+    public override void Update() {
+        if (!script.isPlayerPushingRight) {
+            stateMachine.ChangeState("Idle");
+            return;
+        }
+        // still PushRight
+        if (GameKernel.inputManager.GetKey(InputKey.Left)) {
+            if (body.velocity.x >= -script.maxSpeed.x) {
+                body.AddForce(new Vector2(-script.moveImpulse, 0.0f), ForceMode2D.Impulse);
+            }
+            if (isPlayingReverse) {
+                isPlayingReverse = false;
+            }
+            if (!isPlaying) {
+                animator.Play("Push");
+                isPlaying = true;
+            }
+        } else if (GameKernel.inputManager.GetKey(InputKey.Right)) {
+            if (body.velocity.x <= script.maxSpeed.x) {
+                body.AddForce(new Vector2(script.moveImpulse, 0.0f), ForceMode2D.Impulse);
+            }
+            if (isPlaying) {
+                isPlaying = false;
+            }
+            if (!isPlayingReverse) {
+                animator.Play("PushReverse");
+                isPlayingReverse = true;
+            }
+        } else {
+            animator.Play("PushStop");
+            isPlaying = false;
+            isPlayingReverse = false;
+        }
+    }
+
+    public override void OnExit() {
+        // Debug.Log("PushRight OnExit");
+        script.enableMove = true;
     }
 }

@@ -38,6 +38,14 @@ public class BoxPuzzle : Puzzle
                     body.AddForce(new Vector2(100*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
             }   
+            if (player.position.x < transform.position.x) {
+                player.GetComponent<PlayerControl>().isPlayerPushingLeft = true;
+            } else {
+                player.GetComponent<PlayerControl>().isPlayerPushingRight = true;
+            }
+        } else {
+            player.GetComponent<PlayerControl>().isPlayerPushingLeft = false;
+            player.GetComponent<PlayerControl>().isPlayerPushingRight = false;
         }
         if (GetTriggerUp())
         {

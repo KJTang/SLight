@@ -22,6 +22,8 @@ public class PlayerControl : MonoBehaviour {
     // TODO: code not good below
     public bool isPlayerClimbingLadder = false;
     public bool isPlayerClimbingRope = false;
+    public bool isPlayerPushingLeft = false;
+    public bool isPlayerPushingRight = false;
 
 	void Start() {
         body = (Rigidbody2D)gameObject.GetComponent<Rigidbody2D>();
@@ -39,6 +41,8 @@ public class PlayerControl : MonoBehaviour {
         stateMachine.AddState(new PlayerJumpState());
         stateMachine.AddState(new PlayerClimbLadderState());
         stateMachine.AddState(new PlayerClimbRopeState());
+        stateMachine.AddState(new PlayerPushLeftState());
+        stateMachine.AddState(new PlayerPushRightState());
         stateMachine.ChangeState("Idle");
     }
 	
