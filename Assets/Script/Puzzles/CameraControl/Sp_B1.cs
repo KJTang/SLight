@@ -20,25 +20,7 @@ public class Sp_B1 : Sp_B2 {
         Debug.Log(flag);
         if (sp1.GetTriggerDown() && flag)
         {
-            Debug.Log("33");
-            flag = false;
-            GameKernel.actionManager.RunAction(new ActionSequence(gameObject, 
-                new ActionMoveBy(gameObject,
-                    -sd1,
-                    1.0f),
-                new ActionDelay(gameObject, 2.0f),
-                new ActionMoveBy(gameObject,
-                    sd1,
-                    1.0f),
-                new ActionCallFunc(gameObject, (object obj) =>
-                {
-                    GameObject go = (GameObject)obj;
-                    flag = true;
-                    //Debug.Log(go.transform.position.y);
-                    //Debug.Log("aa");
-                    GameKernel.inputManager.Enable = true;
-                }, gameObject)
-            ));
+
         }
         if (sp2.GetTriggerDown() && flag)
         {
@@ -92,7 +74,25 @@ public class Sp_B1 : Sp_B2 {
             flag = false;
             GameKernel.inputManager.Enable = false;
             p4_down = false;
-            flag = true;
+            Debug.Log("33");
+            GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                new ActionDelay(gameObject, 4.0f),
+                new ActionMoveBy(gameObject,
+                    -sd1,
+                    1.0f),
+                new ActionDelay(gameObject, 2.0f),
+                new ActionMoveBy(gameObject,
+                    sd1,
+                    1.0f),
+                new ActionCallFunc(gameObject, (object obj) =>
+                {
+                    GameObject go = (GameObject)obj;
+                    flag = true;
+                    //Debug.Log(go.transform.position.y);
+                    //Debug.Log("aa");
+                    GameKernel.inputManager.Enable = true;
+                }, gameObject)
+            ));
         }
         base.Update();
 
