@@ -25,7 +25,7 @@ public class PlayerIdleState : State {
 
         animator.SetBool("IsIdling", true);
 
-        AudioClip clip = Resources.Load("SoundEffect/脚步/脚步-硬地") as AudioClip;
+        AudioClip clip = Resources.Load("SoundEffect/walk") as AudioClip;
         Assert.IsNotNull(clip);
         audio.PlayOneShot(clip);
     }
@@ -143,8 +143,8 @@ public class PlayerWalkState : State {
         }
         // sound effect
         deltaTime += Time.deltaTime;
-        if (deltaTime >= soundDelta && !collider.IsTouchingLayers(Physics2D.AllLayers)) {
-            AudioClip clip = Resources.Load("SoundEffect/脚步/脚步-硬地") as AudioClip;
+        if (deltaTime >= soundDelta && collider.IsTouchingLayers(Physics2D.AllLayers)) {
+            AudioClip clip = Resources.Load("SoundEffect/walk") as AudioClip;
             Assert.IsNotNull(clip);
             audio.PlayOneShot(clip);
             deltaTime = 0.0f;

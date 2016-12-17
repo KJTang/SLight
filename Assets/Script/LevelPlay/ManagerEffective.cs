@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 using System.Reflection;
-using UnityEditor;
+// using UnityEditor;
 using System.Collections.Generic;
 public class ManagerEffective : MonoBehaviour
 {

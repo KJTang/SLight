@@ -9,11 +9,13 @@ public class TeleportPuzzle : Puzzle
 {
     public Transform player;
     public Transform destination;
+    public AudioSource audio;
 
     private bool flag = false;
     void Start () {
         Assert.IsNotNull(player);
         //Assert.IsNotNull(destination);
+        audio = gameObject.AddComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -21,6 +23,8 @@ public class TeleportPuzzle : Puzzle
         base.Update();
         if (GetTriggerDown()&&flag == false&&destination)
         {
+            AudioClip clip = Resources.Load("SoundEffect/transfer") as AudioClip;
+            audio.PlayOneShot(clip);
 
             GameKernel.inputManager.Enable = false;
             GameKernel.actionManager.RunAction(new ActionSequence(gameObject,

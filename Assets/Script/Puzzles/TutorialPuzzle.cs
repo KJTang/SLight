@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor.Animations;
+// using UnityEditor.Animations;
 using System.Collections;
 using System.Collections.Generic;
 public class TutorialPuzzle : MonoBehaviour
