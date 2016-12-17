@@ -11,7 +11,7 @@ public class WindowsTest : MonoBehaviour {
     public string levelName;
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -22,6 +22,7 @@ public class WindowsTest : MonoBehaviour {
     void OnGUI()
     {
         GUI.skin = customSkin;
+        //if()
         if (GUI.Button(new Rect(10, 10, 40, 40), exitButton))
         {
             showExitWindow = true; 

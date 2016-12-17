@@ -11,7 +11,7 @@ public class BoxPuzzle : Puzzle
     void Start()
     {
         Assert.IsNotNull(player);
-        gameObject.GetComponent<Rigidbody2D>().mass = 100;
+        gameObject.GetComponent<Rigidbody2D>().mass = 150;
         maxSpeed = player.GetComponent<PlayerControl>().maxSpeed;
         moveImpulse = player.GetComponent<PlayerControl>().moveImpulse;
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -21,36 +21,37 @@ public class BoxPuzzle : Puzzle
     public override void Update()
     {
         base.Update();
-        if (GetTriggerDown())
-        {
-            //gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        if (GetTriggerDown()) {
+            if (player.position.x < transform.position.x) {
+                if (player.localScale.x < 0) {
+                    player.localScale = new Vector3(-player.localScale.x, player.localScale.y, player.localScale.z);
+                }
+                player.GetComponent<PlayerControl>().isPlayerPushingLeft = true;
+            } else {
+                if (player.localScale.x > 0) {
+                    player.localScale = new Vector3(-player.localScale.x, player.localScale.y, player.localScale.z);
+                }
+                player.GetComponent<PlayerControl>().isPlayerPushingRight = true;
+            }
         }
-        if (GetTrigger())
-        {
-            if (Math.Abs(body.velocity.x) <= maxSpeed.x)
-            {
-                if (GameKernel.inputManager.GetKey(InputKey.Left))
-                {
+        if (GetTrigger()) {
+            if (Math.Abs(body.velocity.x) <= maxSpeed.x) {
+                if (GameKernel.inputManager.GetKey(InputKey.Left)) {
                     body.AddForce(new Vector2(-100*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
-                if (GameKernel.inputManager.GetKey(InputKey.Right))
-                {
+                if (GameKernel.inputManager.GetKey(InputKey.Right)) {
                     body.AddForce(new Vector2(100*moveImpulse, 0.0f), ForceMode2D.Impulse);
                 }
             }   
-            if (player.position.x < transform.position.x) {
-                player.GetComponent<PlayerControl>().isPlayerPushingLeft = true;
-            } else {
-                player.GetComponent<PlayerControl>().isPlayerPushingRight = true;
-            }
-        } else {
+        } 
+        if (GetTriggerUp()) {
             player.GetComponent<PlayerControl>().isPlayerPushingLeft = false;
             player.GetComponent<PlayerControl>().isPlayerPushingRight = false;
         }
-        if (GetTriggerUp())
-        {
-            //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            transform.rotation = new Quaternion(0,0,0,0);//排除移动箱子以后不能左右跳跃的bug
-        }
+        // if (GetTriggerUp())
+        // {
+        //     //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        //     transform.rotation = new Quaternion(0,0,0,0);//排除移动箱子以后不能左右跳跃的bug
+        // }
     }
 }
