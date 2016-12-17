@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class WindowsTest : MonoBehaviour {
 
     public GUISkin customSkin;  
-    public Texture2D OKButton;  
-    public Texture2D cancelButton;
+    //public Texture2D OKButton;  
+    //public Texture2D cancelButton;
     public Texture2D exitButton;
     private bool showExitWindow = false;
     public string levelName;
@@ -51,13 +51,13 @@ public class WindowsTest : MonoBehaviour {
 
     void DoMyWindow(int winID)
     {
-        if (GUI.Button(new Rect(207, 250, 120, 120), cancelButton))
+        if (GUI.Button(new Rect(207, 250, 120, 120),""))
         {
             showExitWindow = false;
             Time.timeScale = 1;
         }
         
-        if (GUI.Button(new Rect(437, 250,120, 120), OKButton))
+        if (GUI.Button(new Rect(437, 250,120, 120), ""))
         {
             GameKernel.levelManager.ChangeLevel(
            GameKernel.levelManager.CreateCommonLevel(levelName),
