@@ -31,12 +31,25 @@ public class LevelState : Puzzle {
                 current_savepoints = 0;
                 Debug.Log(current_savepoints);
                 flag = true;
-                GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Next_LevelName), true);
+                GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                    new ActionDelay(gameObject, 1.0f),
+                    new ActionCallFunc(player.gameObject, (object obj) =>
+                    {
+                        GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Next_LevelName), true);
+                    }, gameObject)
+                    )
+                );
             }
             else if (puzzles[1].isTriggered)
             {
-    
-                GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Current_LevelName), true);
+                GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                    new ActionDelay(gameObject, 1.0f),
+                    new ActionCallFunc(player.gameObject, (object obj) =>
+                    {
+                        GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Current_LevelName), true);
+                    }, gameObject)
+                    )
+                );
             }
         }
 
