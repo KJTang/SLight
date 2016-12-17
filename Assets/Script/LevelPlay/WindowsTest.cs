@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WindowsTest : MonoBehaviour {
 
@@ -9,6 +11,9 @@ public class WindowsTest : MonoBehaviour {
     public Texture2D exitButton;
     private bool showExitWindow = false;
     public string levelName;
+
+    public List<string> pauseButtonEnable = new List<string>();
+
     void Start()
     {
         
@@ -22,8 +27,14 @@ public class WindowsTest : MonoBehaviour {
     void OnGUI()
     {
         GUI.skin = customSkin;
-        //if()
-        if (GUI.Button(new Rect(10, 10, 160, 160), exitButton))
+        bool enablePauseBtn = false;
+        for (int i = 0; i != pauseButtonEnable.Count; ++i) {
+            if (("Scene/" + pauseButtonEnable[i]) == SceneManager.GetActiveScene().name) {
+                enablePauseBtn = true;
+                break;
+            }
+        }
+        if (enablePauseBtn && GUI.Button(new Rect(10, 10, 160, 160), exitButton))
         {
             showExitWindow = true; 
         }
