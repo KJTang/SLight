@@ -21,7 +21,9 @@ public class LadderPuzzle : Puzzle {
         if (p1.GetTriggerDown()&&!GameKernel.actionManager.IsRunning(player.gameObject))
         {
             // Debug.Log("p1 is running");
-            player.GetComponent<Rigidbody2D>().isKinematic = true;
+            player.GetComponent<Rigidbody2D>().gravityScale = 0;
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+            player.GetComponent<BoxCollider2D>().isTrigger = true;
             player.GetComponent<PlayerControl>().enableMove = false;
             player.GetComponent<PlayerControl>().isPlayerClimbingLadder = true;
             GameKernel.actionManager.RunAction(new ActionSequence(player.gameObject,
@@ -29,8 +31,9 @@ public class LadderPuzzle : Puzzle {
                 new ActionCallFunc(player.gameObject, (object obj) =>
                 {
                     player.GetComponent<PlayerControl>().enableMove = true;
-                    player.GetComponent<Rigidbody2D>().isKinematic = false;
+                    player.GetComponent<Rigidbody2D>().gravityScale = 1;
                     player.GetComponent<PlayerControl>().isPlayerClimbingLadder = false;
+                    player.GetComponent<BoxCollider2D>().isTrigger = false;
                 })
                 )
             );
@@ -38,7 +41,9 @@ public class LadderPuzzle : Puzzle {
         if (p2.GetTriggerDown() && !GameKernel.actionManager.IsRunning(player.gameObject))
         {
             // Debug.Log("p2 is running");
-            player.GetComponent<Rigidbody2D>().isKinematic = true;
+            player.GetComponent<Rigidbody2D>().gravityScale = 0;
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            player.GetComponent<BoxCollider2D>().isTrigger = true;
             player.GetComponent<PlayerControl>().enableMove = false;
             player.GetComponent<PlayerControl>().isPlayerClimbingLadder = true;
             Debug.Log(player.GetComponent<PlayerControl>().isPlayerClimbingLadder);
@@ -47,7 +52,8 @@ public class LadderPuzzle : Puzzle {
                 new ActionCallFunc(player.gameObject, (object obj) =>
                 {
                     player.GetComponent<PlayerControl>().enableMove = true;
-                    player.GetComponent<Rigidbody2D>().isKinematic = false;
+                    player.GetComponent<BoxCollider2D>().isTrigger = false;
+                    player.GetComponent<Rigidbody2D>().gravityScale = 1;
                     player.GetComponent<PlayerControl>().isPlayerClimbingLadder = false;
                 })
                 )
