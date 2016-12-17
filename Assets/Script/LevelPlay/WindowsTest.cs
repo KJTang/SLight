@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
-public class WindowsTest : MonoBehaviour {
+public class WindowsTest : MonoBehaviour
+{
 
-    public GUISkin customSkin;  
+    public GUISkin customSkin;
     //public Texture2D OKButton;  
     //public Texture2D cancelButton;
     public Texture2D exitButton;
@@ -16,7 +17,7 @@ public class WindowsTest : MonoBehaviour {
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -28,15 +29,17 @@ public class WindowsTest : MonoBehaviour {
     {
         GUI.skin = customSkin;
         bool enablePauseBtn = false;
-        for (int i = 0; i != pauseButtonEnable.Count; ++i) {
-            if (("Scene/" + pauseButtonEnable[i]) == SceneManager.GetActiveScene().name) {
+        for (int i = 0; i != pauseButtonEnable.Count; ++i)
+        {
+            if (("Scene/" + pauseButtonEnable[i]) == SceneManager.GetActiveScene().name)
+            {
                 enablePauseBtn = true;
                 break;
             }
         }
         if (enablePauseBtn && GUI.Button(new Rect(10, 10, 160, 160), exitButton))
         {
-            showExitWindow = true; 
+            showExitWindow = true;
         }
         GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity,
             new Vector3(Screen.width / 800.0f, Screen.height / 600.0f, 1));
@@ -44,21 +47,22 @@ public class WindowsTest : MonoBehaviour {
 
         if (showExitWindow)
         {
-            GUI.Window(0,new Rect(0, 0, 800, 600),DoMyWindow, "");
+            GUI.Window(0, new Rect(0, 0, 800, 600), DoMyWindow, "");
             Time.timeScale = 0;
         }
     }
 
     void DoMyWindow(int winID)
     {
-        if (GUI.Button(new Rect(207, 250, 120, 120),""))
+        if (GUI.Button(new Rect(207, 250, 120, 120), ""))
         {
             showExitWindow = false;
             Time.timeScale = 1;
         }
-        
-        if (GUI.Button(new Rect(437, 250,120, 120), ""))
+
+        if (GUI.Button(new Rect(437, 250, 120, 120), ""))
         {
+            LevelState.current_savepoints = 0;
             GameKernel.levelManager.ChangeLevel(
            GameKernel.levelManager.CreateCommonLevel(levelName),
            true

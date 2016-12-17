@@ -5,7 +5,7 @@ public class LevelState : Puzzle {
     public string Current_LevelName;
     public string Next_LevelName;
     public List<Vector2> savepoints = new List<Vector2>();
-    static private int current_savepoints = 0;
+    static public int current_savepoints = 0;
 
     public Transform player;
 
