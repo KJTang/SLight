@@ -7,7 +7,7 @@ public class DoorPuzzle : Puzzle {
     public Vector3 Moved_position;
     public float Move_Time = 15.0f;
     public AudioSource audio;
-    void Start() {
+    protected void Start() {
         //sprite = transform.Find("Sprite");
         //Assert.IsNotNull(sprite);
         Init_position = transform.position;

@@ -7,6 +7,7 @@ public class SpecialDoorPuzzle : DoorPuzzle {
     // Use this for initialization
     private SpriteRenderer rer;
 	void Start () {
+        base.Start();
         Assert.IsNotNull(p1);
         Assert.IsNotNull(p2);
         Assert.IsNotNull(p3);
