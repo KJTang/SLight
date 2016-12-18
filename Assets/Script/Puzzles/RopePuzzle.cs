@@ -2,6 +2,7 @@
 using UnityEngine.Assertions;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class RopePuzzle : Puzzle {
     public int length = 0;
@@ -14,7 +15,7 @@ public class RopePuzzle : Puzzle {
     public int grabPos = 0;
     public GameObject grabTrigger;
     public float reGrabDelay= 1.5f;
-
+    public Vector3 distance;
     private List<GameObject> rope;
     private bool isGrabbing = false;
     private Joint2D grabJoint;
@@ -22,7 +23,7 @@ public class RopePuzzle : Puzzle {
     void Start() {
         Assert.IsNotNull(sprite);
         Assert.IsNotNull(grabTrigger);
-
+        //distance = new Vector3
         rope = new List<GameObject>(length);
         GameObject point = new GameObject();
         point.transform.parent = transform;
@@ -73,6 +74,11 @@ public class RopePuzzle : Puzzle {
                 OnTriggerDown();
             }
         } else {
+            GameObject player = GameObject.Find("Player");
+            Assert.IsNotNull(player);
+            Vector3 scale = player.transform.localScale;
+            player.GetComponent<PlayerControl>().isPlayerClimbingRope = true;
+            player.transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
             if (GameKernel.inputManager.GetKeyDown(InputKey.Jump)) {
                 PlayerGetDown();
             }
@@ -86,9 +92,12 @@ public class RopePuzzle : Puzzle {
     void PlayerGetUp() {
         GameObject player = GameObject.Find("Player");
         Assert.IsNotNull(player);
+        Vector3 scale = player.transform.localScale;
         player.GetComponent<PlayerControl>().isPlayerClimbingRope = true;
+        player.transform.localScale = new Vector3(Math.Abs(scale.x), scale.y, scale.z);
+        if (player.transform.localScale.x < 0) distance = -distance;
         GameObject grabSeg = rope[grabPos];
-        player.transform.position = grabSeg.transform.position;
+        player.transform.position = grabSeg.transform.position+distance;
         grabJoint = grabSeg.AddComponent<FixedJoint2D>();
         grabJoint.connectedBody = player.GetComponent<Rigidbody2D>();
         isGrabbing = true;
