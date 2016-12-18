@@ -45,6 +45,7 @@ public class BoxPuzzle : Puzzle
             }   
         } 
         if (GetTriggerUp()) {
+            player.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
             player.GetComponent<PlayerControl>().isPlayerPushingLeft = false;
             player.GetComponent<PlayerControl>().isPlayerPushingRight = false;
         }

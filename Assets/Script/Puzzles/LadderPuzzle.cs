@@ -6,7 +6,7 @@ public class LadderPuzzle : Puzzle {
     public Puzzle p1, p2;
     public Transform player;
     public float length, time;
-
+    public AudioSource audio;
     private Animator playerAnimator;
 
 	// Use this for initialization
@@ -14,12 +14,15 @@ public class LadderPuzzle : Puzzle {
         Assert.IsNotNull(player);
         playerAnimator = player.GetComponent<Animator>();
         Assert.IsNotNull(playerAnimator);
+        audio = gameObject.AddComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
         if (p1.GetTriggerDown()&&!GameKernel.actionManager.IsRunning(player.gameObject))
         {
+            AudioClip clip = Resources.Load("SoundEffect/walk") as AudioClip;
+            audio.PlayOneShot(clip);
             // Debug.Log("p1 is running");
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
@@ -40,7 +43,6 @@ public class LadderPuzzle : Puzzle {
         }
         if (p2.GetTriggerDown() && !GameKernel.actionManager.IsRunning(player.gameObject))
         {
-            // Debug.Log("p2 is running");
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             player.GetComponent<BoxCollider2D>().isTrigger = true;

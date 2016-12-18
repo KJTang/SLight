@@ -11,7 +11,7 @@ public class MovablePuzzle : Puzzle {
 
     public Vector3 moveDist = new Vector3(0, 0, 0);
     public Vector3 backDist = new Vector3(0, 0, 0);
-
+    public AudioSource audio;
     public float moveTime = 1.0f;
     public float backTime = 1.0f;
 
@@ -22,6 +22,7 @@ public class MovablePuzzle : Puzzle {
 
     void Start() {
         isTriggered = false;
+        audio = gameObject.AddComponent<AudioSource>();
     }
     
     public override void Update() {
@@ -37,6 +38,8 @@ public class MovablePuzzle : Puzzle {
     }
 
     void OnTriggerUp() {
+        AudioClip clip = Resources.Load("SoundEffect/Door") as AudioClip;
+        audio.PlayOneShot(clip);
         if (isToOrBy == MoveType.TO) {
             originPos = transform.position;
             destPos = backDist;
@@ -56,6 +59,9 @@ public class MovablePuzzle : Puzzle {
     }
 
     void OnTriggerDown() {
+        AudioClip clip = Resources.Load("SoundEffect/Door") as AudioClip;
+        Assert.IsNotNull(clip);
+        audio.PlayOneShot(clip);
         if (isToOrBy == MoveType.TO) {
             originPos = transform.position;
             destPos = moveDist;

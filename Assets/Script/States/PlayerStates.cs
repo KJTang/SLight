@@ -250,11 +250,14 @@ public class PlayerJumpState : State {
 }
 
 public class PlayerClimbLadderState : State {
+    AudioSource audio;
     Animator animator;
     Collider2D collider;
     Rigidbody2D body;
     PlayerControl script;
 
+    float soundDelta = 0.4f;
+    float deltaTime = 0.0f;
     public PlayerClimbLadderState() {
         name = "ClimbLadder";
     }
@@ -270,12 +273,21 @@ public class PlayerClimbLadderState : State {
         script = stateMachine.gameObject.GetComponent<PlayerControl>();
         Assert.IsNotNull(script);
         animator.SetBool("IsClimbingLadder", true);
+        audio = stateMachine.gameObject.GetComponent<AudioSource>();
     }
 
     public override void Update() {
         if (!script.isPlayerClimbingLadder) {
             stateMachine.ChangeState("Idle");
             return;
+        }
+        deltaTime += Time.deltaTime;
+        if (deltaTime >= soundDelta && collider.IsTouchingLayers(Physics2D.AllLayers))
+        {
+            AudioClip clip = Resources.Load("SoundEffect/walk") as AudioClip;
+            Assert.IsNotNull(clip);
+            audio.PlayOneShot(clip);
+            deltaTime = 0.0f;
         }
     }
 
