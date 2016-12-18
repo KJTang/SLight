@@ -3,16 +3,24 @@ using System.Collections;
 
 public class LevelCho : MonoBehaviour {
     public string [] levelName;
+    public Texture2D CexitButton;
     //public int num;
     // Use this for initialization
     void Start () {
-	
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+    public void ChangeLevel0()
+    {
+        GameKernel.levelManager.ChangeLevel(
+           GameKernel.levelManager.CreateCommonLevel("StartScene"),
+           true
+        );
+    }
     public void ChangeLevelA0()
     {
         GameKernel.levelManager.ChangeLevel(
@@ -20,7 +28,7 @@ public class LevelCho : MonoBehaviour {
            true
         );
     }
-
+  
     public void ChangeLevelA1()
     {
         GameKernel.levelManager.ChangeLevel(
