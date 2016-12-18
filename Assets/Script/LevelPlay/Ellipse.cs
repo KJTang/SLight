@@ -101,7 +101,11 @@ public class Ellipse : MonoBehaviour
                 {
                     Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                     Vector3 ChangecenterPosX1 = centerPoint.position;
-                    ChangecenterPosX1.x = ChangecenterPosX1.x + 120;
+                    if (Sprites.Length == 2)
+                    {
+                        ChangecenterPosX1.x = ChangecenterPosX1.x + 2400;
+                    }
+                    else ChangecenterPosX1.x = ChangecenterPosX1.x + 120;
                     Sprites[i].transform.position = getPosition(angle, ChangecenterPosX1);
                 }
 
@@ -115,7 +119,12 @@ public class Ellipse : MonoBehaviour
             for (int i = size; i < Sprites.Length - 1; i++)
             {
                 Vector3 ChangecenterPosX = centerPoint.position;
-                ChangecenterPosX.x = ChangecenterPosX.x - 120;
+                if (Sprites.Length == 2)
+                {
+                    ChangecenterPosX.x = ChangecenterPosX.x - 2400;
+                }
+                else ChangecenterPosX.x = ChangecenterPosX.x - 120;
+               // ChangecenterPosX.x = ChangecenterPosX.x - 120;
                 Sprites[i].transform.position = getPosition(angle, ChangecenterPosX);
                 Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                 angle -= anglecheap;
@@ -123,10 +132,15 @@ public class Ellipse : MonoBehaviour
             }
             //最后一个  
             Vector3 ChangecenterPos = centerPoint.position;
-            ChangecenterPos.y = ChangecenterPos.y+120;
+            if (Sprites.Length == 2)
+            {
+                ChangecenterPos.y = ChangecenterPos.y - 2400;
+            }
+            else ChangecenterPos.y = ChangecenterPos.y - 20;
+            //ChangecenterPos.y = ChangecenterPos.y-20;
 
-            Sprites[3].transform.position = getPosition(90, ChangecenterPos);
-            Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            Sprites[Sprites.Length - 1].transform.position = getPosition(90, ChangecenterPos);
+            Sprites[Sprites.Length - 1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             // m_leftsprite.Add(Sprites[Sprites.Length - 1]);  
             return;
         }
@@ -271,10 +285,18 @@ public class Ellipse : MonoBehaviour
     {
         //添加到容器里，用以多次点击时延迟执行  
         m_eventList.Add(MYDirection.LEFT);
-        Sprites[2].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[0].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[1].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        for (int i = 0; i < Sprites.Length; i++)
+        {
+            if (i == 1)
+            {
+                Sprites[i].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            else Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        }
+        //Sprites[2].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[0].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[1].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         doEvent();
     }
     //往右滑动的回调函数  
@@ -282,10 +304,18 @@ public class Ellipse : MonoBehaviour
     {
         //添加到容器里，用以多次点击时延迟执行  
         m_eventList.Add(MYDirection.RIGHT);
-        Sprites[1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[0].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        Sprites[2].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        for (int i=0;i<Sprites.Length;i++)
+        {
+            if (i == 2)
+            {
+                Sprites[i].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            else Sprites[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        }
+        //Sprites[1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[0].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[3].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        //Sprites[2].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         //for (int i = 0; i < 4; i++)
         //{
         //    if (Sprites[i].transform.localScale == new Vector3(1.0f, 1.0f, 1.0f))

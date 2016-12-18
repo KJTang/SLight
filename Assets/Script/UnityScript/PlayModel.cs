@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayModel : MonoBehaviour {
-    public string levelName;
+    public string [] levelName;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,8 +16,16 @@ public class PlayModel : MonoBehaviour {
     void ChangeLevel()
     {
          GameKernel.levelManager.ChangeLevel(
-            GameKernel.levelManager.CreateCommonLevel(levelName), 
+            GameKernel.levelManager.CreateCommonLevel(levelName[0]), 
             true
          );
+    }
+    public
+    void ChangeLevel1()
+    {
+        GameKernel.levelManager.ChangeLevel(
+           GameKernel.levelManager.CreateCommonLevel(levelName[1]),
+           true
+        );
     }
 }
