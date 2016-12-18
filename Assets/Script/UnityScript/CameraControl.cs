@@ -6,6 +6,7 @@ public class CameraControl : MonoBehaviour {
     public GameObject target;
     protected bool flag;
 	void Start () {
+        flag = true;
     }
 	
 	void Update () {

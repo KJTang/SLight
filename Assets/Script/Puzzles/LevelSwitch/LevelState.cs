@@ -32,9 +32,14 @@ public class LevelState : Puzzle {
                 Debug.Log(current_savepoints);
                 flag = true;
                 GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                    new ActionCallFunc(player.gameObject, (object obj) =>
+                    {
+                        GameKernel.inputManager.Enable = false;
+                    }, gameObject),
                     new ActionDelay(gameObject, 1.0f),
                     new ActionCallFunc(player.gameObject, (object obj) =>
                     {
+                        GameKernel.inputManager.Enable = true;
                         GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Next_LevelName), true);
                     }, gameObject)
                     )
@@ -43,9 +48,14 @@ public class LevelState : Puzzle {
             else if (puzzles[1].isTriggered)
             {
                 GameKernel.actionManager.RunAction(new ActionSequence(gameObject,
+                    new ActionCallFunc(player.gameObject, (object obj) =>
+                    {
+                        GameKernel.inputManager.Enable = false;
+                    }, gameObject),
                     new ActionDelay(gameObject, 1.0f),
                     new ActionCallFunc(player.gameObject, (object obj) =>
                     {
+                        GameKernel.inputManager.Enable = true;
                         GameKernel.levelManager.ChangeLevel(GameKernel.levelManager.CreateCommonLevel(Current_LevelName), true);
                     }, gameObject)
                     )
