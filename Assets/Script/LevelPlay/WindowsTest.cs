@@ -47,6 +47,7 @@ public class WindowsTest : MonoBehaviour
 
         if (showExitWindow)
         {
+            GameKernel.inputManager.Enable = false;
             GUI.Window(0, new Rect(0, 0, 800, 600), DoMyWindow, "");
             Time.timeScale = 0;
         }
@@ -56,6 +57,7 @@ public class WindowsTest : MonoBehaviour
     {
         if (GUI.Button(new Rect(207, 250, 120, 120), ""))
         {
+            GameKernel.inputManager.Enable = true;
             showExitWindow = false;
             Time.timeScale = 1;
         }

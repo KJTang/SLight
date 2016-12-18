@@ -24,7 +24,8 @@ public class LevelCho : MonoBehaviour {
     public void ChangeLevelA0()
     {
         GameKernel.levelManager.ChangeLevel(
-           GameKernel.levelManager.CreateCommonLevel(levelName[0]),
+           // GameKernel.levelManager.CreateCommonLevel(levelName[0]),
+           GameKernel.levelManager.CreateCommonLevel("CG1"),
            true
         );
     }
@@ -48,7 +49,8 @@ public class LevelCho : MonoBehaviour {
     public void ChangeLevelB0()
     {
         GameKernel.levelManager.ChangeLevel(
-           GameKernel.levelManager.CreateCommonLevel(levelName[3]),
+           // GameKernel.levelManager.CreateCommonLevel(levelName[3]),
+           GameKernel.levelManager.CreateCommonLevel("CG2-1"),
            true
         );
     }
@@ -92,7 +94,8 @@ public class LevelCho : MonoBehaviour {
     public void ChangeLevelD0()
     {
         GameKernel.levelManager.ChangeLevel(
-           GameKernel.levelManager.CreateCommonLevel(levelName[9]),
+           // GameKernel.levelManager.CreateCommonLevel(levelName[9]),
+           GameKernel.levelManager.CreateCommonLevel("CG4"),
            true
         );
     }
